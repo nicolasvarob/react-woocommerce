@@ -1,0 +1,12 @@
+div #app{
+    background-color:grey;
+    background-image:url('/background.jpg')
+}
+
+#content {
+    background-color:#fff;
+}
+
+#content.container {
+    padding:0;
+}

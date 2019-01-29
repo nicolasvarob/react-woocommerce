@@ -1,3 +1,34 @@
 .card.product .card-img-top{
-    width:200px;
+    max-width:100%;
+    height:auto;
+    width:auto;
+    max-height:100%;
+}
+.card.product{
+    border:0;
+}
+.card.product .card-body{
+    text-align: center;
+    padding: 1.25rem 0.1rem;
+}
+
+
+.card.product .card-body .img-wrapper {
+    height:140px;
+}
+
+.card.product .content-wrapper{
+    height:230px;
+}
+
+.card-body .price {
+    font-size:1rem;
+}
+
+.card.product .card-title {
+    margin:0;
+}
+
+.card.product .card-text {
+    margin:0;
 }

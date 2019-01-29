@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { addCartItem } from '../../../../actions/cartAction'
 
-import { connect } from 'react-redux';
-
+import './AddToCartButton.css';
 
 class AddToCartButton extends Component {
-
+//Boton agregar al carro de compras junto a cada item de la grilla de productos
     state = {
     }
 
@@ -17,7 +17,7 @@ class AddToCartButton extends Component {
 
     render() {
         return (
-            <a href="#access" onClick={this.AddToCart} className="btn btn-primary">Buy</a>
+            <a href="#access" onClick={this.AddToCart} className="btn btn-primary bg-green">Agregar</a>
         );
     }
 }
