@@ -1,5 +1,4 @@
 # ReactJS Ecommerce + BackEnd WooCommerce
-======
 Ecommerce sin portal de pago, utiliza WooCommerce  API para gestión de productos.
 
 La carpeta *client* tiene todo el desarrollo en react.
