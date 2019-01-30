@@ -31,12 +31,21 @@ export default function (state = initialState, action) {
         }
 
         case INCREMENT_QTY: {
-            return;
+            const itemAddedId = action.payload;
+            const index = state.cartItems.findIndex(item => item.id === itemAddedId);
+            const newQty = state.cartItems[index].qty + 1
 
+            return { ...state, cartItems: [...state.cartItems.slice(0, index), { ...state.cartItems[index], qty: newQty }, ...state.cartItems.slice(index + 1)] }
         }
 
         case DECREMENT_QTY: {
-            return;
+            const itemAddedId = action.payload;
+            const index = state.cartItems.findIndex(item => item.id === itemAddedId);
+            const qty = state.cartItems[index].qty;
+            let newQty;
+            if(qty === 0) newQty = qty;
+            else newQty = qty - 1;
+            return { ...state, cartItems: [...state.cartItems.slice(0, index), { ...state.cartItems[index], qty: newQty }, ...state.cartItems.slice(index + 1)] }
         }
 
         default:

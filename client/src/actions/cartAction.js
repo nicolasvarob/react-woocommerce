@@ -1,4 +1,4 @@
-import { ADD_CART_ITEM } from './types'
+import { ADD_CART_ITEM, INCREMENT_QTY, DECREMENT_QTY } from './types'
 
 export const addCartItem = (id, name, price, qty, img) => dispatch => {
     const payload = {
@@ -15,21 +15,22 @@ export const addCartItem = (id, name, price, qty, img) => dispatch => {
 }
 
 export const incrementer = (id, operation) => dispatch => {
+
     switch (operation) {
         case 'increment':
             dispatch({
-                type: ADD_CART_ITEM,
+                type: INCREMENT_QTY,
                 payload: id
             });
             break;
         case 'decrement':
             dispatch({
-                type: ADD_CART_ITEM,
+                type: DECREMENT_QTY,
                 payload: id
             });
             break;
         default:
-            console.log('error');
+            console.log('unknow increment operation');
     }
 
 

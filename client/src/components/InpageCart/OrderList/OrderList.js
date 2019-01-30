@@ -12,7 +12,7 @@ class OrderList extends Component {
 
     render() {
         const cartItems = this.props.cartItems;
-        const cart = cartItems.map((item) => <OrderListItem key={item.id} name={item.name} qty={item.qty} img={item.img}/>)
+        const cart = cartItems.map((item) => <OrderListItem key={item.id} id={item.id} name={item.name} qty={item.qty} img={item.img}/>)
 
 
 
