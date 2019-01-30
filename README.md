@@ -13,10 +13,10 @@ La carpeta *client* tiene todo el desarrollo en react.
 
 
 ## TODOs
-* Hacer un incrementer + - dentro de la misma grilla de productos, en los productos que se agregaron al carro de compras.
-* Persistencia para el Checkout Cart.
-* Cargar la API en redux ? (O quiza haya mejor alternativa).
-* Cachear la API.
-* Desarrollar vistas de Checkout y Confirmación (Thank you page).
-* Envio de email de confimración de compra para cliente y empresa.
-* Hacer el footer
+1. Hacer un incrementer + - dentro de la misma grilla de productos, en los productos que se agregaron al carro de compras.
+2. Persistencia para el Checkout Cart.
+3. Cargar la API en redux ? (O quiza haya mejor alternativa).
+4. Cachear la API.
+5. Desarrollar vistas de Checkout y Confirmación (Thank you page).
+6. Envio de email de confimración de compra para cliente y empresa.
+7. Hacer el footer
