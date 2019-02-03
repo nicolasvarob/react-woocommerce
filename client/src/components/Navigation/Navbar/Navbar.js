@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import InpageCartDesktop from '../../InpageCart/Desktop/InpageCartDesktop'
 import OrderList from '../../InpageCart/OrderList/OrderList';
 
-const navbar = props => (
+const Navbar = props => (
     <header>
         <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container">
@@ -45,6 +45,7 @@ const navbar = props => (
     </header>
 );
 
+export default Navbar;
 
 
 
@@ -75,5 +76,3 @@ const navbar = props => (
 
 
 
-
-export default navbar;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import OrderListItem from './OrderListItem';
 import { connect } from 'react-redux';
+import CheckoutButton from './CheckoutButton';
+
 
 class OrderList extends Component {
 
@@ -23,6 +25,9 @@ class OrderList extends Component {
                         <th>Total</th>
                     </tr>
                     { cart }
+                    <tr>
+                        <CheckoutButton/>
+                    </tr>
                 </tbody>
             </table>
         );
