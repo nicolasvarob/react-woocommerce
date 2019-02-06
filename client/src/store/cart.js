@@ -23,8 +23,6 @@ export default function (state = initialState, action) {
             const itemAdded = action.payload;
             const { cartItems } = state;
             const itemIndex = cartItems.findIndex(item => item.id === itemAdded.id);
-            console.log(itemIndex)
-
             if (itemIndex === -1) {
                 return setIn(state, ['cartItems'], [...state.cartItems, { ...itemAdded, qty: 1 }])
             } else {

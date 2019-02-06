@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddToCartButton from './AddToCartButton/AddToCartButton';
+import Button from './AddToCartButton/AddToCartButton';
 import { addCartItem, decrementQty } from '../../../store/cart'
 
 import './SingleProduct.css'
@@ -24,12 +24,12 @@ const SingleProduct = ({ product, qty, addProduct, decrementQty }) => {
                 </div>
                 {qty ? 
                     <div className="incrementWrapper">
-                        <AddToCartButton className="qtyBtn" onClick={decrementQty}>-</AddToCartButton>
+                        <Button className="qtyBtn" onClick={decrementQty}>-</Button>
                         <span>{qty} </span>
-                        <AddToCartButton className="qtyBtn" onClick={addProduct}>+</AddToCartButton> 
+                        <Button className="qtyBtn" onClick={addProduct}>+</Button> 
                     </div>: 
                 
-                <AddToCartButton className="btn-add-to-cart" onClick={addProduct}> Agregar </AddToCartButton> }
+                <Button className="btn-add-to-cart" onClick={addProduct}> Agregar </Button> }
             </div>
         </div>
     );
