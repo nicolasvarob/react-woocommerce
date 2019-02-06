@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import SingleProduct from './SingleProduct/SingleProduct';
 import WooCommerce from '../../services/woocommerceAPI';
 
+const mapProduct = ({ title, id, regular_price, images }) => ({ name: title, id, price: parseInt(regular_price), img: images[0].src })
+
 
 class ProductGrid extends Component {
 
     //Grilla de productos,
     state = {
-        products: []
+        products: [
+            {title: 'test', id:0, regular_price: '1200', images: [{src: 'image'}]},
+            {title: 'test', id:1, regular_price: '1300', images: [{src: 'image'}]},
+            {title: 'test', id:2, regular_price: '1500', images: [{src: 'image'}]},
+            {title: 'test', id:3, regular_price: '1300', images: [{src: 'image'}]}
+        ]
     }
 
     componentDidMount() {
@@ -26,10 +33,20 @@ class ProductGrid extends Component {
             const featured = list.filter((item) => {
                 return item.featured === true;
             });
-            let featuredItems = featured.map((item) => <div className="col-6 col-md-3" key={item.id}><SingleProduct id={item.id} name={item.title} img={item.images[0].src} price={item.regular_price} /></div>)
+
+            let featuredItems = featured.map((item) => (
+                <div className="col-6 col-md-3" key={item.id}>
+                    <SingleProduct product={mapProduct(item)} />
+                </div>
+            ))
             renderFeatured = <div><div className="row"> {featuredItems}</div></div>
         }
-        listItems = list.map((item) => <div className="col-6 col-md-3" key={item.id}><SingleProduct id={item.id} name={item.title} img={item.images[0].src} price={item.regular_price} /></div>)
+
+        listItems = list.map((item) => (
+            <div className="col-6 col-md-3" key={item.id}>
+                <SingleProduct product={mapProduct(item)} />
+            </div>
+        ))
 
         if (this.props.isHome) {
             return (
@@ -53,7 +70,7 @@ class ProductGrid extends Component {
                 </div>
             );
         } else {
-            return ( 
+            return (
                 <div className="container">
                     <div className="container">
                         <div className="row text-center">
