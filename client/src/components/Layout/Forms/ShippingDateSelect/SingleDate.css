@@ -3,8 +3,11 @@
     padding:1em 0.75em;
     margin-bottom:1em;
     border:1px solid black;
+    border-radius:5px;
     cursor: pointer;
     height:70px;
+    width:220px;
+    max-width:100%;
 }
 
 .single-date:hover{
