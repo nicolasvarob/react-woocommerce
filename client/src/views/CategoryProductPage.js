@@ -5,10 +5,12 @@ import Navbar from '../components/Navigation/Navbar/Navbar';
 
 const CategoryProductPage = (props) => {
     return (
-        <div>
-            <Navbar/>
-            <ProductGrid category={props.params} />
-            <InpageCart />
+        <div id="app">
+            <div id="content" className="container">
+                <Navbar />
+                <ProductGrid category={props.params} />
+                <InpageCart />
+            </div>
         </div>
     );
 };

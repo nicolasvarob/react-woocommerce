@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const CheckoutButton = () => {
     return (
-        <NavLink to="/checkout"><button type="button" class="btn btn-info">CHECKOUT</button></NavLink>
+        <NavLink to="/checkout"><button type="button" className="btn btn-info">CHECKOUT</button></NavLink>
     );
 };
 

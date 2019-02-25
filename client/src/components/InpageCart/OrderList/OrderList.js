@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import OrderListItem from './OrderListItem';
 import { connect } from 'react-redux';
 import CheckoutButton from './CheckoutButton';
+import OrderTotal from './OrderTotal';
 
 
 class OrderList extends Component {
@@ -14,22 +15,27 @@ class OrderList extends Component {
 
     render() {
         const cartItems = this.props.cartItems;
-        const cart = cartItems.map((item) => <OrderListItem key={item.id} id={item.id} name={item.name} qty={item.qty} img={item.img}/>)
+        const cart = cartItems.map((item) => <OrderListItem key={item.id} id={item.id} name={item.name} qty={item.qty} img={item.img} />)
 
+        let checkoutButton = <CheckoutButton />;
 
+        if (this.props.location) {
+            const isCheckout = this.props.location.includes('checkout');
+            if (isCheckout) {
+                checkoutButton = '';
+            }
+        }
 
         return (
-            <table className="table">
-                <tbody>
-                    <tr>
-                        <th>Total</th>
-                    </tr>
-                    { cart }
-                    <tr>
-                        <CheckoutButton/>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <table className="table">
+                    <tbody>
+                        {cart}
+                    </tbody>
+                </table>
+                <OrderTotal />
+                {checkoutButton}
+            </div>
         );
     };
 }

@@ -6,6 +6,7 @@ body {
 
 h2,h3 {
   color:#525252;
+  line-height: 1.5;
 }
 h3 {
  font-size:1em;
@@ -28,4 +29,13 @@ h3 {
   font-size:2.5em;
   font-weight:900;
   text-transform: uppercase;
+}
+
+.wrapper{
+  padding: 2em 2.5em;
+}
+
+.text-box {
+  margin:1.5em 0;
+  text-align: justify;
 }

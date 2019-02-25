@@ -23,6 +23,7 @@ class ProductGrid extends Component {
             this.setState({ products: response.products });
         });
     }
+    
     render() {
         const list = this.state.products
         let renderFeatured;

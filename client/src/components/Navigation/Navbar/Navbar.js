@@ -5,6 +5,7 @@ import InpageCartDesktop from '../../InpageCart/Desktop/InpageCartDesktop'
 import OrderList from '../../InpageCart/OrderList/OrderList';
 
 const Navbar = props => (
+    
     <header>
         <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container">

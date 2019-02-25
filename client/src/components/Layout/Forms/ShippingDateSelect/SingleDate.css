@@ -11,11 +11,10 @@
 }
 
 .single-date:hover{
-    background-color:teal;
+    background-color:grey;
 }
 
 .single-date:focus{
-    background-color:blue;
 }
 
 .single-date p {

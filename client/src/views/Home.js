@@ -12,7 +12,6 @@ const Home = () => {
         <div id="app">
             <div id="content" className="container">
                 <Navbar />
-                <Hero />
                 <ProductGrid featured={true} isHome={true} />
                 <InpageCart />
                 <Footer />

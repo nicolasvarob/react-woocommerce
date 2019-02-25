@@ -8,7 +8,7 @@ const OrderListItem = (props) => {
         <tr>
             <th scope="row"><img alt="ads" src={props.img} /></th>
             <td><span>{props.name}</span>{/* <span>$5.000</span> */}</td>
-            <td className="align-middle"><Incrementer id={props.id} operation="increment"/> {props.qty} <Incrementer id={props.id} operation="decrement"/></td>
+            <td className="align-middle"> <div className="incrementer-wrapper"><Incrementer id={props.id} operation="decrement"/>{props.qty}<Incrementer id={props.id} operation="increment"/> </div></td>
         </tr>
     );
 }
