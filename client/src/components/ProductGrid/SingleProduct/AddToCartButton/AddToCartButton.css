@@ -1,5 +1,7 @@
 .btn-add-to-cart{
-    width:100px;
+    width:130px;
+    background-color:#001381;
+    border-color:#001381;
 }
 
 .btnStyles:hover{
@@ -14,11 +16,16 @@
     background-color:#00cece;
 }
 .incrementWrapper .qtyBtn {
-    width: 30px !important;
-    height: 30px;
-    line-height: 15px;
+    width: 40px !important;
+    height: 40px;
+    line-height: 25px;
 }
 .incrementWrapper span {
     padding: 0 10px;
     font-size: 18px;
+}
+
+.qtyBtn{
+    background-color:#999999;
+    border: 1px solid #eee
 }

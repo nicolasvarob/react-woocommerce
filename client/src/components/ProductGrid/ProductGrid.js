@@ -10,19 +10,19 @@ class ProductGrid extends Component {
     //Grilla de productos,
     state = {
         products: [
-            {title: 'test', id:0, regular_price: '1200', images: [{src: 'image'}]},
-            {title: 'test', id:1, regular_price: '1300', images: [{src: 'image'}]},
-            {title: 'test', id:2, regular_price: '1500', images: [{src: 'image'}]},
-            {title: 'test', id:3, regular_price: '1300', images: [{src: 'image'}]}
+            {title: 'test blue', id:0, regular_price: '599', images: [{src: 'https://perskindol.ch/wp-content/uploads/2018/07/gel-pflaster-spray-muskel-gelenkschmerzen-400x400.png'}]},
+            {title: 'test other', id:1, regular_price: '2700', images: [{src: 'http://www.ekinos.com.ar/file/im/20180428144543acido_tioctico.jpg'}]},
+            {title: 'test yes', id:2, regular_price: '1500', images: [{src: 'https://www.dominionsalt.co.nz/wp-content/uploads/2017/03/Pacific_DSPE25_Group4-web800-400x400.jpg'}]},
+            {title: 'maybe test', id:3, regular_price: '5000', images: [{src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRwTQI9H4W-SkbMY2_D-vcQ8K1GHxCwAWJIyvtpB4ho3sodkItuQ'}]}
         ]
     }
-
-    componentDidMount() {
+    // API Call
+    /* componentDidMount() {
         WooCommerce.getAsync('products').then((result) => {
             const response = JSON.parse(result.toJSON().body);
             this.setState({ products: response.products });
         });
-    }
+    } */
     
     render() {
         const list = this.state.products
@@ -67,6 +67,7 @@ class ProductGrid extends Component {
                         <div className="row">
                             {listItems}
                         </div>
+                        <img alt="la picaflor" style={{"maxWidth":"100%","opacity":"0.2"}} src={require('../../assets/handraw-vegetables.jpg')} />
                     </div>
                 </div>
             );

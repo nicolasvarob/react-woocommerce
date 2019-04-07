@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { incrementer } from '../../../../actions/cartAction'
-
 import { connect } from 'react-redux';
 
+import 'font-awesome/css/font-awesome.min.css';
 import './Incrementer.css'
 
 class Incrementer extends Component {
@@ -15,12 +15,12 @@ class Incrementer extends Component {
 
         let sign;
         if(this.props.operation==="increment"){
-            sign = "+"
+            sign = <i className="fa fa-plus"></i>
         } else {
-            sign = "-"
+            sign = <i className="fa fa-minus"></i>
         }
         return (
-            <span className="incrementer" onClick={this.Increment}>{sign}</span>
+            <a href="#" className="btn btn-primary qtyBtn" onClick={this.Increment}>{sign}</a>
         );
     }
 }

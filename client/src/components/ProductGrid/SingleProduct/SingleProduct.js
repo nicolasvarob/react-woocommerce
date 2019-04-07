@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Button from './AddToCartButton/AddToCartButton';
 import { addCartItem, decrementQty } from '../../../store/cart'
 
+import 'font-awesome/css/font-awesome.min.css';
 import './SingleProduct.css'
 
 
@@ -24,9 +25,9 @@ const SingleProduct = ({ product, qty, addProduct, decrementQty }) => {
                 </div>
                 {qty ? 
                     <div className="incrementWrapper">
-                        <Button className="qtyBtn" onClick={decrementQty}>-</Button>
+                        <Button className="qtyBtn" onClick={decrementQty}><i className="fa fa-minus"></i></Button>
                         <span>{qty} </span>
-                        <Button className="qtyBtn" onClick={addProduct}>+</Button> 
+                        <Button className="qtyBtn" onClick={addProduct}><i className="fa fa-plus"></i></Button> 
                     </div>: 
                 
                 <Button className="btn-add-to-cart" onClick={addProduct}> Agregar </Button> }

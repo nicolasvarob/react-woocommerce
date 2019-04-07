@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class OrderTotal extends Component {
-    componentDidUpdate(){
-        console.log(this.props)
+  
+    componentDidMount() {
     }
+
+    componentDidUpdate() {
+    }
+
     render() {
         return (
             <div className="row">
                 <div className="col">Total</div>
-                <div className="col">$2.500</div>
+                <div className="col">$ {this.props.total}</div>
             </div>
         );
     }
@@ -17,8 +21,8 @@ class OrderTotal extends Component {
 
 const mapStateToProps = state => {
     return ({
-        cartItems: state.cart.cartItems
-    })
+        total: state.cart.cartItems.reduce((prev, i) => prev + (i.qty * i.price),0)
+    });
 }
 
 export default connect(mapStateToProps, null)(OrderTotal);

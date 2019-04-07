@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OrderList from './OrderList/OrderList';
 
+
 import './InpageCart.css';
 
 class InpageCart extends Component {
@@ -10,7 +11,7 @@ class InpageCart extends Component {
             <div className="fixed-bottom d-xs-block d-sm-block d-md-block d-lg-none">
                 <button className="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     Show cart content
-                    </button>
+                </button>
                 <div className="collapse" id="collapseExample">
                     <div className="card card-body">
                         <OrderList />

@@ -7,7 +7,7 @@ class componentName extends Component {
     render() {
         return (
             <button className="btn btn-primary btn-lg btn-block d-none d-lg-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Show cart content
+                Carro de compra
             </button>
 
         );

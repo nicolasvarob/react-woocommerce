@@ -6,6 +6,7 @@ div #app{
 
 #content {
     background-color:#fff;
+    min-height:100vh;
 }
 
 #content.container {
