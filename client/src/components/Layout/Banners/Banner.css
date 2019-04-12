@@ -1,0 +1,27 @@
+#banner h2{
+    font-weight:900;
+    font-size:4em;
+    color:white;
+    line-height: 1.1;
+    margin-top:.5em;
+}
+
+#banner p{
+    line-height:1.1;
+    font-weight:700;
+    font-size:2em;
+    color:white;
+}
+
+.banner-wrapper:before {
+        background-color: rgba(0,0,0,0.3);
+        position: absolute;
+        content:" ";
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        display: block;
+        z-index:0;
+}
+

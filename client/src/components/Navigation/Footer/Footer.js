@@ -12,7 +12,12 @@ const componentName = () => {
                                 <img alt="la picaflor" className="footer-logo" src={require('../../../assets/logo.png')} />
                             </div>
                             <div className="col-md-4 col-sm-12">
-                                
+                                <ul className="footer-list">
+                                    <li><h4>Título</h4></li>
+                                    <li>URL 1</li>
+                                    <li>URL 2</li>
+                                    <li>URL 4</li>
+                                </ul>
                             </div>
                             <div className="col-md-4 col-sm-12">
                                

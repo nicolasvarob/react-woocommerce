@@ -5,7 +5,6 @@ import InpageCartDesktop from '../../InpageCart/Desktop/InpageCartDesktop'
 import OrderList from '../../InpageCart/OrderList/OrderList';
 
 const Navbar = props => (
-    
     <header>
         <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container">
@@ -38,8 +37,18 @@ const Navbar = props => (
                 </div>
             </div>
         </nav>
-        <div className="collapse" id="collapseExample" >
+        <div className="collapse" id="sidebar-cart" >
             <div className="card card-body">
+                <div className="row">
+                    <div className="col-10">
+                        <h4 className="card-title">Carro de compras</h4>
+                    </div>
+                    <div className="col-2">
+                        <button className="close-sidebar-cart" type="button" data-toggle="collapse" data-target="#sidebar-cart" aria-expanded="false" aria-controls="collapseExample">
+                            X
+                        </button>
+                    </div>
+                </div>
                 <OrderList />
             </div>
         </div>
