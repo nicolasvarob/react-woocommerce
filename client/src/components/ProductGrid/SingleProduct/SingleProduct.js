@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from './AddToCartButton/AddToCartButton';
 import { addCartItem, decrementQty } from '../../../store/cart'
+import number_format from '../../../functions/tochileanpesos';
 
 import 'font-awesome/css/font-awesome.min.css';
 import './SingleProduct.css'
@@ -21,7 +22,7 @@ const SingleProduct = ({ product, qty, addProduct, decrementQty }) => {
                     </div>
                     <h3 className="card-title">{name}</h3>
                     <p className="card-text">Kilo</p>
-                    <p className="price"><b>${parsedPrice}</b></p>
+                    <p className="price"><b>${number_format(parsedPrice)}</b></p>
                 </div>
                 {qty ? 
                     <div className="incrementWrapper">

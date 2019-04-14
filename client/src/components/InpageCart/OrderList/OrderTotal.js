@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import number_format from '../../../functions/tochileanpesos';
 
 class OrderTotal extends Component {
   
@@ -13,7 +14,7 @@ class OrderTotal extends Component {
         return (
             <div className="row">
                 <div className="col">Total</div>
-                <div className="col">$ {this.props.total}</div>
+                <div className="col">$ {number_format(this.props.total)}</div>
             </div>
         );
     }

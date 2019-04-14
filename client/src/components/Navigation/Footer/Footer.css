@@ -1,6 +1,6 @@
 .footer-container{
     padding: 2em 0;
-    background-color:#235789;
+    background-color:rgba(0, 0, 0, 0.85);
 }
 
 .footer-logo{
@@ -9,5 +9,12 @@
 
 .footer-list{
     list-style-type: none;
+    color:white;
+}
+
+.sub-footer-container{
+    padding-top:1em;
+    font-size:0.8em;
+    background-color:rgb(0,0,0);
     color:white;
 }

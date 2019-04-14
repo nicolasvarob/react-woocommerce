@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 import InpageCartDesktop from '../../InpageCart/Desktop/InpageCartDesktop'
+
 import OrderList from '../../InpageCart/OrderList/OrderList';
 
 const Navbar = props => (
@@ -14,27 +15,27 @@ const Navbar = props => (
                 </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <NavLink className="nav-link" to="/">Home</NavLink>
-                        </li>
-
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/categoria/verduras">Verduras</NavLink>
+                            <NavLink className="nav-link" to="/categoria/verduras">Vegetales</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/categoria/frutas">Frutas</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/categoria/dulces">Dulces</NavLink>
+                            <NavLink className="nav-link" to="/categoria/dulces">Frutos Secos</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/categoria/productos-artesanales">Artesanal</NavLink>
+                            <NavLink className="nav-link" to="/categoria/productos-artesanales">Granos</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/categoria/productos-artesanales">Emporio</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/categoria/productos-artesanales">Condimentos</NavLink>
                         </li>
                     </ul>
-                    <span className="navbar-text">
-                        <InpageCartDesktop />
-                    </span>
                 </div>
+                <InpageCartDesktop />
             </div>
         </nav>
         <div className="collapse" id="sidebar-cart" >
