@@ -5,3 +5,10 @@ th img {
 .incrementer-wrapper {
     width:100px;
 }
+
+
+@media (max-width: 768px) { 
+    #sidebar-cart th img, #checkout-orderlist th img {
+        max-width:50px;
+    }
+ }

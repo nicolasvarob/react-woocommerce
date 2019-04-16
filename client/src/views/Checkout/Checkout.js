@@ -16,12 +16,14 @@ class Checkout extends Component {
                 <div id="content" className="container">
                     <Navbar />
                     <div className="wrapper">
-                        <div className="row">
+                        <div className="row text-center">
                             <h1>Checkout</h1>
                         </div>
                         <div className="row">
                             <div className="col-sm">
-                                <OrderList location={location} />
+                                <div className="box-wrapper">
+                                    <OrderList id="checkout-orderlist" location={location} />
+                                </div>
                                 <CheckoutForm />
                             </div>
                             <div className="col-sm">

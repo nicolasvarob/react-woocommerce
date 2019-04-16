@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { NavLink } from 'react-router-dom';
 
 const componentName = () => {
     return (
@@ -15,9 +16,24 @@ const componentName = () => {
                                 <div className="col-md-6 col-sm-12">
                                     <ul className="footer-list">
                                         <li><h4>Nuestros Productos</h4></li>
-                                        <li>URL 1</li>
-                                        <li>URL 2</li>
-                                        <li>URL 4</li>
+                                         <li>
+                            <NavLink to="/categoria/verduras">Vegetales</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/categoria/frutas">Frutas</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/categoria/dulces">Frutos Secos</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/categoria/productos-artesanales">Granos</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/categoria/productos-artesanales">Emporio</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/categoria/productos-artesanales">Condimentos</NavLink>
+                        </li>
                                     </ul>
                                 </div>
                             </div>

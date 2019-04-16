@@ -1,7 +1,7 @@
 .btn-add-to-cart{
     width:130px;
-    background-color:#001381;
-    border-color:#001381;
+    background-color:#e85d4a;
+    border-color:#e85d4a;
 }
 
 .btnStyles:hover{
@@ -16,16 +16,28 @@
     background-color:#00cece;
 }
 .incrementWrapper .qtyBtn {
-    width: 40px !important;
+    width: 40px;
     height: 40px;
     line-height: 25px;
 }
 .incrementWrapper span {
-    padding: 0 10px;
-    font-size: 18px;
+    display:inline-block;
+    text-align:center;
+    width: 18px;
+    font-size: 16px;
+}
+
+.incrementWrapper {
+    width:100%;
 }
 
 .qtyBtn{
     background-color:#999999;
-    border: 1px solid #eee
+    border: 1px solid #eee;
+}
+
+#sidebar-cart .incrementWrapper .qtyBtn {
+    width:35px;
+    height:35px;
+    line-height: 22px;
 }

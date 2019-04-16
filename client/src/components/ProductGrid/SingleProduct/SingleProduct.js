@@ -21,7 +21,7 @@ const SingleProduct = ({ product, qty, addProduct, decrementQty }) => {
                         <img className="card-img-top" src={img} alt="Card cap" />
                     </div>
                     <h3 className="card-title">{name}</h3>
-                    <p className="card-text">Kilo</p>
+                    <p className="card-text wgth">Kilo</p>
                     <p className="price"><b>${number_format(parsedPrice)}</b></p>
                 </div>
                 {qty ? 

@@ -1,3 +1,7 @@
 .legal{
     list-style-type: decimal;
 }
+
+.box-wrapper{
+    padding:1em 0;
+}

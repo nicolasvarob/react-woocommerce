@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
-import InpageCartDesktop from '../../InpageCart/Desktop/InpageCartDesktop'
+import InpageCartButton from '../../InpageCart/InpageCartButton/InpageCartButton';
 
 import OrderList from '../../InpageCart/OrderList/OrderList';
 
@@ -9,10 +9,10 @@ const Navbar = props => (
     <header>
         <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container">
-                <NavLink className="navbar-brand" to="/"><img alt="lapicaflor" src={require('../../../assets/logo.png')}></img></NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+                <NavLink className="navbar-brand" to="/"><img alt="lapicaflor" src={require('../../../assets/logo.png')}></img></NavLink>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
@@ -35,7 +35,8 @@ const Navbar = props => (
                         </li>
                     </ul>
                 </div>
-                <InpageCartDesktop />
+                <InpageCartButton />
+
             </div>
         </nav>
         <div className="collapse" id="sidebar-cart" >

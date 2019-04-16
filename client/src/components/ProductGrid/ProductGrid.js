@@ -12,8 +12,11 @@ class ProductGrid extends Component {
         products: [
             {title: 'test blue', id:0, regular_price: '599', images: [{src: 'https://perskindol.ch/wp-content/uploads/2018/07/gel-pflaster-spray-muskel-gelenkschmerzen-400x400.png'}]},
             {title: 'test other', id:1, regular_price: '2700', images: [{src: 'http://www.ekinos.com.ar/file/im/20180428144543acido_tioctico.jpg'}]},
-            {title: 'test yes', id:2, regular_price: '1500', images: [{src: 'https://www.dominionsalt.co.nz/wp-content/uploads/2017/03/Pacific_DSPE25_Group4-web800-400x400.jpg'}]},
-            {title: 'maybe test', id:3, regular_price: '5000', images: [{src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRwTQI9H4W-SkbMY2_D-vcQ8K1GHxCwAWJIyvtpB4ho3sodkItuQ'}]}
+            {title: 'test yes', id:2,featured:true, regular_price: '1500', images: [{src: 'https://www.dominionsalt.co.nz/wp-content/uploads/2017/03/Pacific_DSPE25_Group4-web800-400x400.jpg'}]},
+            {title: 'maybe test', id:3, regular_price: '5000', images: [{src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRwTQI9H4W-SkbMY2_D-vcQ8K1GHxCwAWJIyvtpB4ho3sodkItuQ'}]},
+            {title: 'other producto', id:4, featured: true,regular_price: '220', images: [{src: 'https://www.molinodezafra.com/wp-content/uploads/2018/03/Aceite-de-oliva-virgen-extra-20-mililitros-enbase-vidrio-400x400.jpg'}]},
+            {title: 'product also', id:5, regular_price: '2100', images: [{src: 'http://www.wellnesspremiumproducts.com/wp-content/uploads/2018/08/micro-capsules-hair-mask_keratin-mask-400x400.jpg'}]},
+            {title: 'product also', id:6, regular_price: '1290', images: [{src: 'https://quesodealbarracin.es/wp-content/uploads/2014/11/products_optimizada_don-manuel-cuna-400x400.jpg'}]}
         ]
     }
     // API Call

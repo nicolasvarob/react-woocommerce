@@ -3,7 +3,6 @@ import { incrementer } from '../../../../actions/cartAction'
 import { connect } from 'react-redux';
 
 import 'font-awesome/css/font-awesome.min.css';
-import './Incrementer.css'
 
 class Incrementer extends Component {
 

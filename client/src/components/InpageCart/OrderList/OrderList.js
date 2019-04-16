@@ -27,7 +27,7 @@ class OrderList extends Component {
         }
 
         return (
-            <div>
+            <div id={this.props.id}>
                 <table className="table">
                     <tbody>
                         {cart}

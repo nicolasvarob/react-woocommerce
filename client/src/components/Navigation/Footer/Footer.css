@@ -3,14 +3,22 @@
     background-color:rgba(0, 0, 0, 0.85);
 }
 
+/*TODO: Por qué se rompe si no se quita el margen ?*/
+@media (max-width: 768px) { 
+    .footer-container > .row {
+        margin:0;
+    }
+ }
+
 .footer-logo{
     width:150px;
 }
 
-.footer-list{
+.footer-list,.footer-list a{
     list-style-type: none;
     color:white;
 }
+
 
 .sub-footer-container{
     padding-top:1em;

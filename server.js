@@ -1,17 +1,16 @@
 const express = require('express')
-
+const path = require('path');
 const app = express();
 
-app.get('/api/customers',(req,res)=> {
-    const customers = [
-        {id: 1, name: 'Diego'},
-        {id: 2, name: 'Teresa'},
-        {id: 3, name: 'Fuenzalida'},
-    ]
-
-    res.json(customers)
-})
 
 const port = 5000;
+
+app.use(express.static(path.join(__dirname,'client/build')));
+
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 
 app.listen(port,()=> console.log(`Server starter on ${port}`))
