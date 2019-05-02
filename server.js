@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path');
 const app = express();
 const credentials = require('./secret/keys.json');
+const fs = require('fs');
 
 const WooCommerceAPI = require('woocommerce-api')
 
@@ -14,7 +15,7 @@ var WooCommerce = new WooCommerceAPI({
 
 const port = 5000;
 
-app.use(express.static(path.join(__dirname,'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 WooCommerce.getAsync('products').then((result) => {
     const response = JSON.parse(result.toJSON().body);
@@ -25,21 +26,34 @@ WooCommerce.getAsync('products').then((result) => {
         const sale_price = i.sale_price;
         const featured_src = i.featured_src;
 
-        return {
+        const obj = {
             title: title,
             price: price,
             regular_price: regular_price,
             sale_price: sale_price,
             featured_src: featured_src
         }
-        
+        return obj;
     });
-    console.log(products);
-});
+    return products;
+}).then(
+    //Save WooCommerce response as product json
+    res => {
+        const resToJSON = JSON.stringify(res);
+        fs.writeFile("./client/src/assets/products.json", resToJSON, 'utf8', function (err) {
+            if (err) {
+                console.log("An error occured while writing JSON Object to File.");
+                return console.log(err);
+            }
+            console.log("JSON file has been saved.");
+        });
+    }
+);
+
 // Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 
-app.listen(port,()=> console.log(`Server starter on ${port}`))
+app.listen(port, () => console.log(`Server starter on ${port}`))
