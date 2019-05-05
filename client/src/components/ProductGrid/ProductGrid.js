@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import SingleProduct from './SingleProduct/SingleProduct';
-import WooCommerce from '../../services/woocommerceAPI';
+import productJSON from '../../assets/products.json'
 
-const mapProduct = ({ title, id, regular_price, images }) => ({ name: title, id, price: parseInt(regular_price), img: images[0].src })
+const mapProduct = ({ title, id, regular_price, featured_src,sale_price, on_sale, tags }) => ({ name: title, id, price: parseInt(regular_price),sale_price:parseInt(sale_price), img: featured_src,measure:tags[0],on_sale:on_sale })
 
 
 class ProductGrid extends Component {
 
     //Grilla de productos,
-    state = {
+   /*  state = {
         products: [
             {title: 'test blue', id:0, regular_price: '599', images: [{src: 'https://perskindol.ch/wp-content/uploads/2018/07/gel-pflaster-spray-muskel-gelenkschmerzen-400x400.png'}]},
             {title: 'test other', id:1, regular_price: '2700', images: [{src: 'http://www.ekinos.com.ar/file/im/20180428144543acido_tioctico.jpg'}]},
@@ -18,14 +18,10 @@ class ProductGrid extends Component {
             {title: 'product also', id:5, regular_price: '2100', images: [{src: 'http://www.wellnesspremiumproducts.com/wp-content/uploads/2018/08/micro-capsules-hair-mask_keratin-mask-400x400.jpg'}]},
             {title: 'product also', id:6, regular_price: '1290', images: [{src: 'https://quesodealbarracin.es/wp-content/uploads/2014/11/products_optimizada_don-manuel-cuna-400x400.jpg'}]}
         ]
-    }
-    // API Call
-    /* componentDidMount() {
-        WooCommerce.getAsync('products').then((result) => {
-            const response = JSON.parse(result.toJSON().body);
-            this.setState({ products: response.products });
-        });
     } */
+    state = {
+        products:productJSON
+    }
     
     render() {
         const list = this.state.products
@@ -39,7 +35,7 @@ class ProductGrid extends Component {
             });
 
             let featuredItems = featured.map((item) => (
-                <div className="col-6 col-md-3" key={item.id}>
+                <div className="col-6 col-md-3" >
                     <SingleProduct product={mapProduct(item)} />
                 </div>
             ))

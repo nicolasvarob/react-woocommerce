@@ -9,8 +9,8 @@ import './SingleProduct.css'
 
 
 const SingleProduct = ({ product, qty, addProduct, decrementQty }) => {
-    //Producto en grilla
-    const { name, price, img } = product
+    //Grid product
+    const { name, price, img, measure, on_sale, sale_price } = product
     const parsedPrice = parseInt(price);
 
     return (
@@ -21,7 +21,7 @@ const SingleProduct = ({ product, qty, addProduct, decrementQty }) => {
                         <img className="card-img-top" src={img} alt="Card cap" />
                     </div>
                     <h3 className="card-title">{name}</h3>
-                    <p className="card-text wgth">Kilo</p>
+                    <p className="card-text wgth">{ measure ? measure : 'Kg' }</p>
                     <p className="price"><b>${number_format(parsedPrice)}</b></p>
                 </div>
                 {qty ? 

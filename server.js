@@ -20,18 +20,25 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 WooCommerce.getAsync('products').then((result) => {
     const response = JSON.parse(result.toJSON().body);
     const products = response.products.map(i => {
+        console.log(i)
         const title = i.title;
         const price = i.price;
         const regular_price = i.regular_price;
         const sale_price = i.sale_price;
+        const featured = i.featured;
         const featured_src = i.featured_src;
+        const tags = i.tags;
+        const on_sale = i.on_sale;
 
         const obj = {
             title: title,
             price: price,
             regular_price: regular_price,
             sale_price: sale_price,
-            featured_src: featured_src
+            featured_src: featured_src,
+            featured: featured,
+            tags: tags,
+            on_sale: on_sale
         }
         return obj;
     });
