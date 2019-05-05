@@ -15,7 +15,6 @@ La carpeta *client* tiene todo el desarrollo en react.
 
 ## TODOs
 
-1. Hacer un incrementer + - dentro de la misma grilla de productos, en los productos que se agregaron al carro de compras.
-2. Persistencia para el Checkout Cart.
-3. Envio de email de confimración de compra para cliente y empresa.
-4. Mostrar "no hay productos en carror de compras"
+1. Persistencia para el Checkout Cart.
+2. Envio de email de confimración de compra para cliente y empresa.
+3. Mostrar "no hay productos en carror de compras"
