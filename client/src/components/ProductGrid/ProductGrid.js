@@ -31,11 +31,12 @@ class ProductGrid extends Component {
 
         if (this.props.featured) {
             const featured = list.filter((item) => {
+                console.log(item)
                 return item.featured === true;
             });
 
             let featuredItems = featured.map((item) => (
-                <div className="col-6 col-md-3" >
+                <div className="col-6 col-md-3" key={item.id}>
                     <SingleProduct product={mapProduct(item)} />
                 </div>
             ))

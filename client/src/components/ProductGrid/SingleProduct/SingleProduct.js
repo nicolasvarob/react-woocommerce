@@ -12,6 +12,7 @@ const SingleProduct = ({ product, qty, addProduct, decrementQty }) => {
     //Grid product
     const { name, price, img, measure, on_sale, sale_price } = product
     const parsedPrice = parseInt(price);
+    console.log('is in sale ? ' + on_sale)
 
     return (
         <div className="card product">

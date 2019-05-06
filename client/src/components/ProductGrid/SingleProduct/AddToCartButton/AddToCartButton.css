@@ -36,6 +36,11 @@
     border: 1px solid #eee;
 }
 
+.btn-primary:disabled{
+    background-color:grey;
+    border-color:grey;
+}
+
 #sidebar-cart .incrementWrapper .qtyBtn {
     width:35px;
     height:35px;
