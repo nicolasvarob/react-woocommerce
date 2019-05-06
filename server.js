@@ -21,6 +21,7 @@ WooCommerce.getAsync('products').then((result) => {
     const response = JSON.parse(result.toJSON().body);
     const products = response.products.map(i => {
         console.log(i)
+        const id = i.id;
         const title = i.title;
         const price = i.price;
         const regular_price = i.regular_price;
@@ -29,8 +30,10 @@ WooCommerce.getAsync('products').then((result) => {
         const featured_src = i.featured_src;
         const tags = i.tags;
         const on_sale = i.on_sale;
+        const categories = i.categories;
 
         const obj = {
+            id: id,
             title: title,
             price: price,
             regular_price: regular_price,
@@ -38,7 +41,8 @@ WooCommerce.getAsync('products').then((result) => {
             featured_src: featured_src,
             featured: featured,
             tags: tags,
-            on_sale: on_sale
+            on_sale: on_sale,
+            categories: categories
         }
         return obj;
     });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SingleProduct from './SingleProduct/SingleProduct';
 import productJSON from '../../assets/products.json'
 
-const mapProduct = ({ title, id, regular_price, featured_src,sale_price, on_sale, tags }) => ({ name: title, id, price: parseInt(regular_price),sale_price:parseInt(sale_price), img: featured_src,measure:tags[0],on_sale:on_sale })
+const mapProduct = ({ title, id, regular_price, featured_src,sale_price, on_sale, tags,categories }) => ({ categories: categories, name: title, id, price: parseInt(regular_price),sale_price:parseInt(sale_price), img: featured_src,measure:tags[0],on_sale:on_sale })
 
 
 class ProductGrid extends Component {
@@ -24,14 +24,19 @@ class ProductGrid extends Component {
     }
     
     render() {
-        const list = this.state.products
+        let list = this.state.products;
+        let pageCategory = this.props.category;
+        //if(pageCategory) list = list.filter(i => i.categories[0] === pageCategory);
+        if(pageCategory) list = list.filter(i => { 
+            if(i.categories) return i.categories[0].toLowerCase() === pageCategory;
+            else return false;
+        });
         let renderFeatured;
         let listItems;
 
 
         if (this.props.featured) {
             const featured = list.filter((item) => {
-                console.log(item)
                 return item.featured === true;
             });
 
