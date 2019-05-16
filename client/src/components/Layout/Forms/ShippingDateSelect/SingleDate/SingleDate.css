@@ -1,0 +1,17 @@
+.single-date {
+    margin-bottom:2em;
+    cursor:pointer;
+}
+
+.single-date .header {
+    color:white;
+    background-color:#C0392B;
+    font-size:1.5em;
+    padding:0 0.25em;
+    text-transform: capitalize;
+
+}
+
+.single-date .body {
+    font-size: 2.5em;
+}

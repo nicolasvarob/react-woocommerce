@@ -28,6 +28,7 @@
 }
 
 .incrementWrapper {
+    min-width:100px;
     width:100%;
 }
 
@@ -45,4 +46,9 @@
     width:35px;
     height:35px;
     line-height: 22px;
+}
+
+#sidebar-cart th {
+    padding:0rem;
+    vertical-align: middle;
 }

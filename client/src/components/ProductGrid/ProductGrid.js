@@ -26,7 +26,6 @@ class ProductGrid extends Component {
     render() {
         let list = this.state.products;
         let pageCategory = this.props.category;
-        //if(pageCategory) list = list.filter(i => i.categories[0] === pageCategory);
         if(pageCategory) list = list.filter(i => { 
             if(i.categories) return i.categories[0].toLowerCase() === pageCategory;
             else return false;
@@ -72,7 +71,7 @@ class ProductGrid extends Component {
                         <div className="row">
                             {listItems}
                         </div>
-                        <img alt="la picaflor" style={{"maxWidth":"100%","opacity":"0.2"}} src={require('../../assets/handraw-vegetables.jpg')} />
+                        <img alt="La Picaflor" style={{"maxWidth":"100%","opacity":"0.2"}} src={require('../../assets/handraw-vegetables.jpg')} />
                     </div>
                 </div>
             );
