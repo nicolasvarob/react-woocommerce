@@ -43,7 +43,6 @@ class componentName extends Component {
     const showShippingDates = dates.map(i => (
       <div onClick={ () => this._setdate(i) } key={i} className="col-sm">
         <SingleDate
-          
           day={i.getDate()}
           month={i.getMonth()}
         />
