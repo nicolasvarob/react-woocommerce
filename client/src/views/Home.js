@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductGrid from '../components/ProductGrid/ProductGrid';
-import Navbar from '../components/Navigation/Navbar/Navbar'
+import Header from '../components/Navigation/Navbar/Header'
 import Footer from '../components/Navigation/Footer/Footer'
 import Banner from '../components/Layout/Banners/Banner';
 
@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div id="app">
             <div id="content" className="container">
-                <Navbar />
+                <Header />
                 <Banner/>
                 <ProductGrid featured={true} isHome={true} />
             </div>
