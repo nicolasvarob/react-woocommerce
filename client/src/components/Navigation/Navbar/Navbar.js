@@ -7,7 +7,18 @@ import OrderList from "../../InpageCart/OrderList/OrderList";
 
 const Navbar = props => {
   if (props.hidden == true) {
-    return <div></div>;
+    return (
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-light ">
+          <div className="container">
+   
+            <NavLink className="navbar-brand" to="/">
+              <img alt="lapicaflor" src={require("../../../assets/logo.png")} />
+            </NavLink>
+          </div>
+        </nav>
+      </div>
+    );
   } else {
     return (
       <div>
