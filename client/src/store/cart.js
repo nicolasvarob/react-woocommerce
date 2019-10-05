@@ -4,6 +4,7 @@ const ADD_CART_ITEM = "ADD_CART_ITEM"
 const REMOVE_CART_ITEM = "REMOVE_CART_ITEM"
 const INCREMENT_QTY = "INCREMENT_QTY"
 const DECREMENT_QTY = "DECREMENT_QTY"
+const RESET_CART = "RESET_CART";
 
 const initialState = {
     cartItems: [],
@@ -15,6 +16,7 @@ export const addCartItem = (payload) => ({
 })
 export const incrementItem = (payload) => ({ type: INCREMENT_QTY, payload })
 export const decrementQty = (payload) => ({ type: DECREMENT_QTY, payload })
+export const resetCart = (payload) => ({type: RESET_CART,payload})
 
 
 export default function (state = initialState, action) {
@@ -32,6 +34,10 @@ export default function (state = initialState, action) {
 
         case REMOVE_CART_ITEM: {
             return;
+        }
+
+        case RESET_CART: {
+            return setIn(state, ['cartItems'], []);
         }
 
         case INCREMENT_QTY: {

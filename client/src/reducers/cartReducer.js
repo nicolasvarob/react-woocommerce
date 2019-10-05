@@ -1,5 +1,5 @@
 
-import { ADD_CART_ITEM, REMOVE_CART_ITEM, INCREMENT_QTY, DECREMENT_QTY } from '../actions/types';
+import { ADD_CART_ITEM, REMOVE_CART_ITEM, INCREMENT_QTY, DECREMENT_QTY, RESET_CART } from '../actions/types';
 
 const initialState = {
     cartItems: [],
@@ -21,13 +21,16 @@ export default function (state = initialState, action) {
                     return { ...state, cartItems: [...state.cartItems.slice(0, i), { ...state.cartItems[i], qty: newQty }, ...state.cartItems.slice(i + 1)] }
                 }
             }
-
             updatedCart = [...state.cartItems, itemAdded]
             return { ...state, cartItems: updatedCart }
         }
 
         case REMOVE_CART_ITEM: {
             return;
+        }
+
+        case RESET_CART: {
+            return { ...state, cartItems: [] };
         }
 
         case INCREMENT_QTY: {

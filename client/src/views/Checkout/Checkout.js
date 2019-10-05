@@ -4,6 +4,7 @@ import OrderList from "../../components/InpageCart/OrderList/OrderList";
 import CheckoutForm from "../../components/Layout/Forms/CheckoutForm";
 import ShippingDateSelect from '../../components/Layout/Forms/ShippingDateSelect/ShippingDateSelect';
 
+
 import { NavLink } from "react-router-dom";
 
 import "./Checkout.css";
@@ -13,12 +14,14 @@ class Checkout extends Component {
     date: new Date()
   };
 
+
   render() {
     const location = this.props.location.pathname;
+
     return (
       <div id="app">
         <div id="content" className="container">
-          <Navbar />
+          <Navbar hidden={true} />
           <div className="wrapper">
             <div className="row text-center">
               <h1>Checkout</h1>
@@ -63,5 +66,6 @@ class Checkout extends Component {
     );
   }
 }
+
 
 export default Checkout;

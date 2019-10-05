@@ -1,12 +1,15 @@
 import React from 'react';
 import Navbar from '../../components/Navigation/Navbar/Navbar';
+import { connect } from 'react-redux';
 
+import { resetCart } from '../../store/cart'
 
-const Confirmation = () => {
+const Confirmation = (props) => {
+    props.resetCart();
     return (
         <div id="app">
             <div id="content" className="container">
-                <Navbar />
+                <Navbar hidden={true}/>
                 <div className="row">
                     <div className="col">
                         <h1>¡Gracias por su compra!</h1>
@@ -24,4 +27,9 @@ const Confirmation = () => {
     );
 };
 
-export default Confirmation;
+
+const mapDispatchToProps = {
+    resetCart
+  }
+
+export default connect(null, mapDispatchToProps)(Confirmation);
