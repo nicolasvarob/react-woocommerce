@@ -6,7 +6,7 @@ import InpageCartButton from "../../InpageCart/InpageCartButton/InpageCartButton
 import OrderList from "../../InpageCart/OrderList/OrderList";
 
 const Navbar = props => {
-  if (props.hidden == true) {
+  if (props.hidden === true) {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light ">
