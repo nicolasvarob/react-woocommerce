@@ -5,7 +5,11 @@ import { connect } from 'react-redux';
 import { resetCart } from '../../store/cart'
 
 const Confirmation = (props) => {
-    props.resetCart();
+    if(props.location.state){
+        console.log('reset cart')
+        props.resetCart();
+    }
+
     return (
         <div id="app">
             <div id="content" className="container">

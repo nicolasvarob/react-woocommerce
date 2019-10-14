@@ -45,7 +45,6 @@ const Navbar = props => {
                     Vegetales
                   </NavLink>
                 </li>
-                {console.log(props)}
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/categoria/frutas">
                     Frutas

@@ -2,19 +2,13 @@ import React, { Component } from "react";
 import Navbar from "../../components/Navigation/Navbar/Navbar";
 import OrderList from "../../components/InpageCart/OrderList/OrderList";
 import CheckoutForm from "../../components/Layout/Forms/CheckoutForm";
-import ShippingDateSelect from '../../components/Layout/Forms/ShippingDateSelect/ShippingDateSelect';
+import ShippingDateSelect from "../../components/Layout/Forms/ShippingDateSelect/ShippingDateSelect";
+import CheckoutButton from "./CheckoutButton/CheckoutButton";
 
-
-import { NavLink } from "react-router-dom";
 
 import "./Checkout.css";
 
 class Checkout extends Component {
-  state = {
-    date: new Date()
-  };
-
-
   render() {
     const location = this.props.location.pathname;
 
@@ -28,6 +22,7 @@ class Checkout extends Component {
             </div>
             <div className="row">
               <div className="col-sm">
+                <h2>Carro de compras</h2>
                 <div className="box-wrapper">
                   <OrderList id="checkout-orderlist" location={location} />
                 </div>
@@ -35,18 +30,14 @@ class Checkout extends Component {
               </div>
               <div className="col-sm">
                 <h2>Selecciona el día de entrega</h2>
-                <ShippingDateSelect/>
+                <ShippingDateSelect />
                 <p className="text-box">
                   Deberás hacer una transferencia electrónica ahora. Tu pedido
                   quedará reservado por 40 minutos. La información para la
                   transferencia la recibirás en tu correo electónico junto con
                   el resto de la información del pedido.
                 </p>
-                <NavLink to="/checkout/thank-you">
-                  <button type="button" className="btn btn-success ">
-                    COMPRAR
-                  </button>
-                </NavLink>
+                <CheckoutButton />
               </div>
             </div>
             <div className="row">
@@ -66,6 +57,5 @@ class Checkout extends Component {
     );
   }
 }
-
 
 export default Checkout;

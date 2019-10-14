@@ -6,12 +6,28 @@
 .single-date .header {
     color:white;
     background-color:#C0392B;
-    font-size:1.5em;
+    font-size:1.25em;
     padding:0 0.25em;
     text-transform: capitalize;
 
 }
 
+.single-date.active  .header {
+    background-color: #db5f12  ;
+
+}
+
+.single-date.active  .body {
+    background-color: #ef7f39;
+    color:white;
+}
+
 .single-date .body {
     font-size: 2.5em;
+}
+.single-date .body p {
+    margin-bottom:0.1em;
+}
+.single-date .body .smaller {
+    font-size:0.4em;
 }

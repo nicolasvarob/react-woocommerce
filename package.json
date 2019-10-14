@@ -26,6 +26,7 @@
     "cron": "^1.7.2",
     "express": "^4.16.4",
     "node-cron": "^2.0.3",
+    "nodemailer": "^6.3.1",
     "woocommerce-api": "^1.4.2"
   }
 }
