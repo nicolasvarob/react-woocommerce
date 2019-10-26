@@ -5,10 +5,17 @@ import CheckoutForm from "../../components/Layout/Forms/CheckoutForm";
 import ShippingDateSelect from "../../components/Layout/Forms/ShippingDateSelect/ShippingDateSelect";
 import CheckoutButton from "./CheckoutButton/CheckoutButton";
 
-
 import "./Checkout.css";
 
 class Checkout extends Component {
+  state = {
+    shippingDate: null
+  };
+
+  _returnPickupDateFromChild = date => {
+    if (this.state.shippingDate !== date) this.setState({ shippingDate: date });
+  };
+
   render() {
     const location = this.props.location.pathname;
 
@@ -30,14 +37,16 @@ class Checkout extends Component {
               </div>
               <div className="col-sm">
                 <h2>Selecciona el día de entrega</h2>
-                <ShippingDateSelect />
+                <ShippingDateSelect
+                  dateCallback={this._returnPickupDateFromChild}
+                />
                 <p className="text-box">
                   Deberás hacer una transferencia electrónica ahora. Tu pedido
                   quedará reservado por 40 minutos. La información para la
                   transferencia la recibirás en tu correo electónico junto con
                   el resto de la información del pedido.
                 </p>
-                <CheckoutButton />
+                <CheckoutButton shippingDate={this.state.shippingDate} />
               </div>
             </div>
             <div className="row">

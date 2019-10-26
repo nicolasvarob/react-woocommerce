@@ -31,8 +31,13 @@ class componentName extends Component {
     this.setState({ dates: [d1, d2, d3, d4] });
   }
 
+  componentDidUpdate() {
+    if (this.state.shippingDate)
+    this.props.dateCallback(this.state.shippingDate);
+  }
+
   _setdate = date => {
-    this.setState({ shippingDate: date });
+    if(this.state.date !== date) this.setState({ shippingDate: date });
   };
 
   render() {
@@ -40,8 +45,8 @@ class componentName extends Component {
       (a, b) => new Date(a.date) - new Date(b.date)
     );
     const showShippingDates = dates.map(i => {
-
-      const formattedDate = i.getDate() + "/" + i.getMonth() + "/"  + i.getFullYear();
+      const formattedDate =
+        i.getDate() + "/" + i.getMonth() + "/" + i.getFullYear();
       return (
         <div
           onClick={() => this._setdate(formattedDate)}
@@ -50,7 +55,6 @@ class componentName extends Component {
         >
           <SingleDate
             active={(() => {
-
               if (formattedDate === this.state.shippingDate) return true;
               else return false;
             })()}

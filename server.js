@@ -78,7 +78,7 @@ cron.schedule(
 // Handles any requests that don't match the ones above
 
 app.post("/api/sender", (req, res) => {
-  console.log(req.body)
+  emailer.SendOrderTo(req.body);
   res.send('ok')
 });
 

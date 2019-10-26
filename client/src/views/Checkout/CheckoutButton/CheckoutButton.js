@@ -9,7 +9,6 @@ class CheckoutButton extends Component {
 
   _sendProducts = async () => {
     const cart = this.props.cartItems;
-    console.log(cart)
     const items = cart.map(i => {
       //Fija el precio si esta en promoción o no
       let price;
@@ -26,12 +25,15 @@ class CheckoutButton extends Component {
       return console.log("error ! Carro vacío");
     }
 
-    console.log(JSON.stringify(items))
+    var drop = {
+      date: this.props.shippingDate,
+      cart: items
+    }
 
     const res = await fetch("/api/sender", {
       method: "post",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(items)
+      body: JSON.stringify(drop)
     });
     const status = await res.status;
     if (status >= 200 && status < 300) this.setState({ redirect: true });
