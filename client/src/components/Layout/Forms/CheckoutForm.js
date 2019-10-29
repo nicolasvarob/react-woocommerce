@@ -1,24 +1,83 @@
-import React from 'react';
+import React, { Component } from "react";
 
-const CheckoutForm = () => {
+class CheckoutForm extends Component {
+  state = {
+    fullname: null,
+    email:null,
+    address:null,
+    apt: null
+  
+  };
+
+  //CORREGIR VALUE DE INPUT, SE BLOQUEA AL SER CONTROLADO
+
+  _changeHandler = e => {
+    let obj = {};
+    if (e.target.name) {
+      obj = {[e.target.name]:e.target.value}
+    } else return;
+    this.setState(obj);
+  };
+
+  render() {
     return (
-        <form>
-            <div className="form-row">
-                <div className="form-group col">
-                    <label >Email</label>
-                    <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
-                </div>
-            </div>
-            <div className="form-group">
-                <label>Address</label>
-                <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
-            </div>
-            <div className="form-group">
-                <label>Address 2</label>
-                <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
-            </div>
-        </form>
+      <form>
+        <div className="form-row">
+          <div className="form-group col">
+            <label>Nombre completo</label>
+            <input
+              id="fullname"
+              name="fullname"
+              type="text"
+              className="form-control"
+              value={this.state.fullname}
+              placeholder="Nombre completo"
+              onBlur={this._changeHandler}
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col">
+            <label>Email</label>
+            <input
+              name="email"
+              type="email"
+              className="form-control"
+              value={this.state.email}
+              placeholder="Email"
+              onBlur={this._changeHandler}
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-8">
+            <label>Dirección</label>
+            <input
+              name="address"
+              type="text"
+              className="form-control"
+              value={this.state.address}
+              onBlur={this._changeHandler}
+              placeholder="Dirección"
+
+            />
+          </div>
+          <div className="form-group col-4">
+            <label>Dpto. <i>(Opcional)</i></label>
+            <input
+              name="apt"
+              type="text"
+              className="form-control"
+              value={this.state.apt}
+              onBlur={this._changeHandler}
+              placeholder="Nº de dpto."
+
+            />
+          </div>
+        </div>
+      </form>
     );
-};
+  }
+}
 
 export default CheckoutForm;

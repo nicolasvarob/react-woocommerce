@@ -27,17 +27,21 @@ exports.buildHtml = (date, obj) => {
       border-spacing: 0;
       font: normal 16px Arial, sans-serif;">
         <tr>
-          <td style="${style.tdunstyle}">Fecha de la orden</td>
+          <td style="${style.tdunstyle}"><b>Fecha de la orden</b></td>
           <td style="${style.tdunstyle}">${date}</td>
         </tr>
         <tr>
-          <td style="${style.tdunstyle}">Fecha de envío</td>
+          <td style="${style.tdunstyle}"><b>Fecha de despacho</b></td>
           <td style="${style.tdunstyle}">${obj.date}</td>
         </tr>
         <tr>
-          <td style="${style.tdunstyle}">Nombre</td>
+          <td style="${style.tdunstyle}"><b>Nombre</b></td>
           <td style="${style.tdunstyle}">Nicolás Garcia</td>
         </tr>
+        <tr>
+        <td style="${style.tdunstyle}"><b>Dirección</b></td>
+        <td style="${style.tdunstyle}">Nicolás Garcia</td>
+      </tr>
       </table>
   <table style="border: 1px solid grey;
   border: solid 1px #ddeeee;
