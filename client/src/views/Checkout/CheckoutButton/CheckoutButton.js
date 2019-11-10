@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 class CheckoutButton extends Component {
   state = {
-    redirect: false
+    redirect: false,
+    errorResponse: false
   };
 
   _sendProducts = async () => {
@@ -12,7 +13,7 @@ class CheckoutButton extends Component {
     const items = cart.map(i => {
       //Fija el precio si esta en promoción o no
       let price;
-      if(i.on_sale) price = i.sale_price;
+      if (i.on_sale) price = i.sale_price;
       else price = i.price;
 
       return { name: i.name, price: price, qty: i.qty, measure: i.measure };
@@ -28,7 +29,7 @@ class CheckoutButton extends Component {
     var drop = {
       date: this.props.shippingDate,
       cart: items
-    }
+    };
 
     const res = await fetch("/api/sender", {
       method: "post",
@@ -37,15 +38,15 @@ class CheckoutButton extends Component {
     });
     const status = await res.status;
     if (status >= 200 && status < 300) this.setState({ redirect: true });
-    else
-      console.log(
-        "Error de conexión. Por favor intente más tarde. Codigo de error: " +
-          status
-      );
+    else this.setState({ errorResponse: status });
+    console.log(
+      "Error de conexión. Por favor intente más tarde. Codigo de error: " +
+        status
+    );
   };
 
   render() {
-    if (this.state.redirect)
+    if (this.state.redirect) {
       return (
         <Redirect
           to={{
@@ -54,7 +55,20 @@ class CheckoutButton extends Component {
           }}
         />
       );
-    else {
+    } else if (this.state.errorResponse) {
+      return (
+        <Fragment>
+          <button
+            onClick={() => this._sendProducts()}
+            type="button"
+            className="btn btn-success "
+          >
+            COMPRAR
+          </button>
+          <p className="text-danger">Error de servicio, favor intentar más tarde.</p>
+        </Fragment>
+      );
+    } else {
       return (
         <button
           onClick={() => this._sendProducts()}

@@ -28,13 +28,16 @@ class OrderList extends Component {
 
         return (
             <div id={this.props.id}>
+                <OrderTotal />
                 <table className="table">
                     <tbody>
                         {cart}
                     </tbody>
                 </table>
                 <OrderTotal />
+
                 {checkoutButton}
+
             </div>
         );
     };

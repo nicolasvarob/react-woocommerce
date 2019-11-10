@@ -12,12 +12,17 @@ class CheckoutForm extends Component {
   //CORREGIR VALUE DE INPUT, SE BLOQUEA AL SER CONTROLADO
 
   _changeHandler = e => {
+    console.log('change')
     let obj = {};
     if (e.target.name) {
       obj = {[e.target.name]:e.target.value}
     } else return;
     this.setState(obj);
   };
+
+  componentDidUpdate(){
+    console.log(this.state)
+  }
 
   render() {
     return (
@@ -32,7 +37,7 @@ class CheckoutForm extends Component {
               className="form-control"
               value={this.state.fullname}
               placeholder="Nombre completo"
-              onBlur={this._changeHandler}
+              onChange={this._changeHandler}
             />
           </div>
         </div>
@@ -45,7 +50,20 @@ class CheckoutForm extends Component {
               className="form-control"
               value={this.state.email}
               placeholder="Email"
-              onBlur={this._changeHandler}
+              onChange={this._changeHandler}
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col">
+            <label>Teléfono</label>
+            <input
+              name="phone"
+              type="text"
+              className="form-control"
+              value={this.state.email}
+              placeholder="Número de teléfono"
+              onChange={this._changeHandler}
             />
           </div>
         </div>
@@ -57,7 +75,7 @@ class CheckoutForm extends Component {
               type="text"
               className="form-control"
               value={this.state.address}
-              onBlur={this._changeHandler}
+              onChange={this._changeHandler}
               placeholder="Dirección"
 
             />
@@ -69,7 +87,7 @@ class CheckoutForm extends Component {
               type="text"
               className="form-control"
               value={this.state.apt}
-              onBlur={this._changeHandler}
+              onChange={this._changeHandler}
               placeholder="Nº de dpto."
 
             />
