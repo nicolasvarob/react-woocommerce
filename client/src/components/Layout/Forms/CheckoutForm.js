@@ -1,28 +1,24 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { updateForm } from "../../../actions/formAction";
 
 class CheckoutForm extends Component {
   state = {
     fullname: null,
-    email:null,
-    address:null,
-    apt: null
-  
+    email: null,
+    address: null,
+    apt: null,
+    comuna: null
   };
-
-  //CORREGIR VALUE DE INPUT, SE BLOQUEA AL SER CONTROLADO
 
   _changeHandler = e => {
-    console.log('change')
     let obj = {};
     if (e.target.name) {
-      obj = {[e.target.name]:e.target.value}
+      obj = { [e.target.name]: e.target.value };
     } else return;
+    this.props.updateForm(this.state);
     this.setState(obj);
   };
-
-  componentDidUpdate(){
-    console.log(this.state)
-  }
 
   render() {
     return (
@@ -61,8 +57,21 @@ class CheckoutForm extends Component {
               name="phone"
               type="text"
               className="form-control"
-              value={this.state.email}
+              value={this.state.phone}
               placeholder="Número de teléfono"
+              onChange={this._changeHandler}
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col">
+            <label>Comuna</label>
+            <input
+              name="comuna"
+              type="text"
+              className="form-control"
+              value={this.state.comuna}
+              placeholder="Comuna"
               onChange={this._changeHandler}
             />
           </div>
@@ -77,11 +86,12 @@ class CheckoutForm extends Component {
               value={this.state.address}
               onChange={this._changeHandler}
               placeholder="Dirección"
-
             />
           </div>
           <div className="form-group col-4">
-            <label>Dpto. <i>(Opcional)</i></label>
+            <label>
+              Dpto. <i>(Opcional)</i>
+            </label>
             <input
               name="apt"
               type="text"
@@ -89,7 +99,6 @@ class CheckoutForm extends Component {
               value={this.state.apt}
               onChange={this._changeHandler}
               placeholder="Nº de dpto."
-
             />
           </div>
         </div>
@@ -98,4 +107,19 @@ class CheckoutForm extends Component {
   }
 }
 
-export default CheckoutForm;
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    updateForm: (params) => dispatch(updateForm(params))
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    form: state
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CheckoutForm);

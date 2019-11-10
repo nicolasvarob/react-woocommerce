@@ -3,7 +3,7 @@ import Navbar from "../../components/Navigation/Navbar/Navbar";
 import OrderList from "../../components/InpageCart/OrderList/OrderList";
 import CheckoutForm from "../../components/Layout/Forms/CheckoutForm";
 import ShippingDateSelect from "../../components/Layout/Forms/ShippingDateSelect/ShippingDateSelect";
-import CheckoutButton from "./CheckoutButton/CheckoutButton";
+import CheckoutButton from "../../components/Checkout/CheckoutButton/CheckoutButton";
 
 import "./Checkout.css";
 
@@ -15,6 +15,10 @@ class Checkout extends Component {
   _returnPickupDateFromChild = date => {
     if (this.state.shippingDate !== date) this.setState({ shippingDate: date });
   };
+
+  _returnFormDataFromChild = data => {
+
+  }
 
   render() {
     const location = this.props.location.pathname;
