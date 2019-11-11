@@ -1,0 +1,32 @@
+.btn.main {
+  padding: 10px 50px;
+  background-color: #c0392b;
+  border: 1px solid #c0392b;
+  color: #fff;
+  font-weight: 700;
+}
+.btn.main:hover {
+  background-color: #ab3326;
+}
+
+.btn.second {
+  padding: 10px 32px;
+  margin-right:10px;
+  background-color: #fff;
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  font-weight: 700;
+}
+
+.btn.second:hover {
+    background-color: #fff;
+    border: 1px solid #ab3326;
+    color: #ab3326;
+  }
+
+  @media (max-width: 576px) {
+    .btn.second,.btn.main {
+        width:100%;
+        margin-bottom:10px;
+    }
+}

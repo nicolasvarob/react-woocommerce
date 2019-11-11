@@ -51,7 +51,7 @@ const Navbar = props => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/categoria/dulces">
+                  <NavLink className="nav-link" to="/categoria/frutos-secos">
                     Frutos Secos
                   </NavLink>
                 </li>
@@ -60,13 +60,13 @@ const Navbar = props => {
                     className="nav-link"
                     to="/categoria/productos-artesanales"
                   >
-                    Granos
+                    Artesanal
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
                     className="nav-link"
-                    to="/categoria/productos-artesanales"
+                    to="/categoria/emporio"
                   >
                     Emporio
                   </NavLink>
@@ -74,7 +74,7 @@ const Navbar = props => {
                 <li className="nav-item">
                   <NavLink
                     className="nav-link"
-                    to="/categoria/productos-artesanales"
+                    to="/categoria/condimentos"
                   >
                     Condimentos
                   </NavLink>

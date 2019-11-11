@@ -16,8 +16,9 @@ class CheckoutForm extends Component {
     if (e.target.name) {
       obj = { [e.target.name]: e.target.value };
     } else return;
-    this.props.updateForm(this.state);
+    //this.props.updateForm(this.state);
     this.setState(obj);
+    this.props.formDataCallback(this.state);
   };
 
   render() {
@@ -77,7 +78,7 @@ class CheckoutForm extends Component {
           </div>
         </div>
         <div className="form-row">
-          <div className="form-group col-8">
+          <div className="form-group col-sm-12 col-8">
             <label>Dirección</label>
             <input
               name="address"
@@ -88,7 +89,7 @@ class CheckoutForm extends Component {
               placeholder="Dirección"
             />
           </div>
-          <div className="form-group col-4">
+          <div className="form-group col-sm-6 col-4">
             <label>
               Dpto. <i>(Opcional)</i>
             </label>

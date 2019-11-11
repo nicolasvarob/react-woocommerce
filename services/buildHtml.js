@@ -1,4 +1,5 @@
 exports.buildHtml = (date, obj) => {
+  console.log(obj);
   const style = {
     th: `background-color: #ddefef;
     border: solid 1px #ddeeee;
@@ -36,11 +37,19 @@ exports.buildHtml = (date, obj) => {
         </tr>
         <tr>
           <td style="${style.tdunstyle}"><b>Nombre</b></td>
-          <td style="${style.tdunstyle}">Nicolás Garcia</td>
+          <td style="${style.tdunstyle}">${obj.formData.fullname}</td>
         </tr>
         <tr>
+        <td style="${style.tdunstyle}"><b>Comuna</b></td>
+        <td style="${style.tdunstyle}">${obj.formData.comuna}</td>
+      </tr>
+      <tr>
         <td style="${style.tdunstyle}"><b>Dirección</b></td>
-        <td style="${style.tdunstyle}">Nicolás Garcia</td>
+        <td style="${style.tdunstyle}">${obj.formData.address}</td>
+      </tr>
+      <tr>
+        <td style="${style.tdunstyle}"><b>Teléfono</b></td>
+        <td style="${style.tdunstyle}">${obj.formData.phone}</td>
       </tr>
       </table>
   <table style="border: 1px solid grey;
@@ -57,7 +66,7 @@ exports.buildHtml = (date, obj) => {
     </tr>
   </thead>
   <tbody>`;
-  
+
   let products = "";
   obj.cart.map(
     i =>
@@ -71,6 +80,5 @@ exports.buildHtml = (date, obj) => {
   </table></div>`;
 
   const content = tabletop + products + tablebottom;
-  console.log(content);
   return content;
 };

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import MainButton from "../../UI/Buttons/MainButton";
 
 class CheckoutButton extends Component {
   state = {
@@ -9,7 +10,18 @@ class CheckoutButton extends Component {
   };
 
   _sendProducts = async () => {
+    const validateFormFields = params => {
+      var p = Object.keys(params);
+      let error;
+      p.forEach(i => {
+        if (i === "apt") return;
+        if (!params[i]) error = true;
+      });
+      if (error) return false;
+      else return true;
+    };
     const cart = this.props.cartItems;
+    const formData = this.props.formData;
     const items = cart.map(i => {
       //Fija el precio si esta en promoción o no
       let price;
@@ -26,57 +38,68 @@ class CheckoutButton extends Component {
       return console.log("error ! Carro vacío");
     }
 
-    var drop = {
+    var payload = {
       date: this.props.shippingDate,
-      cart: items
+      cart: items,
+      formData: formData
     };
 
+    //Validaciones
+    if (!payload.date) {
+      return this.setState({ errorResponse: "Favor elegir fecha de despacho" });
+    }
+    const validationError = await validateFormFields(payload.formData);
+    console.log(validationError);
+    if (!validationError) {
+      return this.setState({ errorResponse: "Favor llenar todos los campos" });
+    }
+    //Send payload to email API
     const res = await fetch("/api/sender", {
       method: "post",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(drop)
+      body: JSON.stringify(payload)
     });
     const status = await res.status;
-    if (status >= 200 && status < 300) this.setState({ redirect: true });
-    else this.setState({ errorResponse: status });
-    console.log(
-      "Error de conexión. Por favor intente más tarde. Codigo de error: " +
-        status
-    );
+    if (status >= 200 && status < 300)
+      this.setState({ redirect: "/checkout/thank-you" });
+    else {
+      this.setState({
+        errorResponse: "Error de conexión. Por favor intente más tarde."
+      });
+      console.log(
+        "Error de conexión. Por favor intente más tarde. Codigo de error: " +
+          status
+      );
+    }
   };
 
   render() {
+    let error;
+    if (this.state.errorResponse)
+      error = <p className="text-danger">{this.state.errorResponse}</p>;
     if (this.state.redirect) {
       return (
         <Redirect
           to={{
-            pathname: "/checkout/thank-you",
+            pathname: this.state.redirect,
             state: { from: "checkout" }
           }}
         />
       );
-    } else if (this.state.errorResponse) {
-      return (
-        <Fragment>
-          <button
-            onClick={() => this._sendProducts()}
-            type="button"
-            className="btn btn-success "
-          >
-            COMPRAR
-          </button>
-          <p className="text-danger">Error de servicio, favor intentar más tarde.</p>
-        </Fragment>
-      );
     } else {
       return (
-        <button
-          onClick={() => this._sendProducts()}
-          type="button"
-          className="btn btn-success "
-        >
-          COMPRAR
-        </button>
+        <Fragment>
+          <MainButton
+            type="secondary"
+            text="SEGUIR COMPRANDO"
+            onClick={() => this.setState({ redirect: "/" })}
+          />
+          <MainButton
+            text="ENVIAR PEDIDO"
+            onClick={() => this._sendProducts()}
+          />
+          {error}
+        </Fragment>
       );
     }
   }

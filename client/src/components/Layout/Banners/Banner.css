@@ -1,6 +1,6 @@
 #banner h2{
     font-weight:900;
-    font-size:4em;
+    font-size:2em;
     color:white;
     line-height: 1.1;
     margin-top:.5em;
@@ -8,15 +8,15 @@
 
 #banner p{
     line-height:1.1;
-    font-weight:700;
-    font-size:2em;
+    font-weight:500;
+    font-size:1.25em;
     color:white;
 }
 
 @media (max-width: 768px) { 
     #banner h2{
     font-weight:900;
-    font-size:2em;
+    font-size:1em;
     color:white;
     line-height: 1.1;
     margin-top:.5em;
@@ -24,7 +24,6 @@
 
 #banner p{
     line-height:1.1;
-    font-weight:700;
     font-size:1.25em;
     color:white;
 }

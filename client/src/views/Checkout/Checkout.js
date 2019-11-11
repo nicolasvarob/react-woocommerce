@@ -9,7 +9,8 @@ import "./Checkout.css";
 
 class Checkout extends Component {
   state = {
-    shippingDate: null
+    shippingDate: null,
+    formData: {}
   };
 
   _returnPickupDateFromChild = date => {
@@ -17,8 +18,8 @@ class Checkout extends Component {
   };
 
   _returnFormDataFromChild = data => {
-
-  }
+    this.setState({ formData: data });
+  };
 
   render() {
     const location = this.props.location.pathname;
@@ -37,7 +38,9 @@ class Checkout extends Component {
                 <div className="box-wrapper">
                   <OrderList id="checkout-orderlist" location={location} />
                 </div>
-                <CheckoutForm />
+                <CheckoutForm
+                  formDataCallback={this._returnFormDataFromChild}
+                />
               </div>
               <div className="col-sm">
                 <h2>Selecciona el día de entrega</h2>
@@ -45,24 +48,43 @@ class Checkout extends Component {
                   dateCallback={this._returnPickupDateFromChild}
                 />
                 <p className="text-box">
-                  Deberás hacer una transferencia electrónica ahora. Tu pedido
-                  quedará reservado por 40 minutos. La información para la
-                  transferencia la recibirás en tu correo electónico junto con
-                  el resto de la información del pedido.
+                  Recibirás un correo de confirmación de que hemos recibido tu
+                  pedido y pago.
                 </p>
-                <CheckoutButton shippingDate={this.state.shippingDate} />
+                <p className="text-box">
+                  <b>RECIBIMOS PEDIDOS HASTA LAS 20:00</b> del día anterior a
+                  despacho con transferencia realizada.
+                </p>
+                <CheckoutButton
+                  shippingDate={this.state.shippingDate}
+                  formData={this.state.formData}
+                />
               </div>
             </div>
             <div className="row">
               <h2>Condiciones del servicio</h2>
             </div>
             <div className="row">
-              <ul className="legal">
-                <li />
-                <li />
-                <li />
-                <li />
-              </ul>
+              <div className="col">
+                <ul className="legal">
+                  <li>
+                    <b>HORARIO ENTREGA</b> (10:00 A 18:00)
+                  </li>
+                  <li>
+                    <b>DESPACHO GRATIS</b> a partir de $18.000 compra.
+                  </li>
+                  <li>
+                    <b>DISPONIBILIDAD DE PRODUCTOS</b> sujeto a la
+                    disponibilidad de la empresa, la que será informada al
+                    momento de hacer el pedido.
+                  </li>
+                  <li>
+                    <b>GARANTIA</b> Si recibes un producto que no cumple tus
+                    expectativas, puedes escribirnos un correo o whatsapp, para
+                    ofrecerte una solución.
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
