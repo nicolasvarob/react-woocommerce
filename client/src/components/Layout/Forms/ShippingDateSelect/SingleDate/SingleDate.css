@@ -13,12 +13,12 @@
 }
 
 .single-date.active  .header {
-    background-color: #db5f12  ;
+    background-color: #007bff  ;
 
 }
 
 .single-date.active  .body {
-    background-color: #ef7f39;
+    background-color: #007bff;
     color:white;
 }
 

@@ -4,7 +4,7 @@ import './MainButton.css';
 
 const MainButton = (props) => {
   let style = "main";
-  if(props.type == "secondary") style ="second"
+  if(props.type === "secondary") style ="second"
     return (
         <button
           onClick={props.onClick}

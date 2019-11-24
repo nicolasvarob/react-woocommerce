@@ -4,34 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Recibo La Picaflor</title>
+    <style>
+      .container{
+        width:80%;
+      }
+      
+      th,td,tr {
+          padding: 15px 30px;
+        }
+        @media (max-width:650px){
+          .container{
+            width:98%;
+          }
+          td,th,tr {
+            padding: 4px 8px;
+          }
+          tr.table-head>td {
+        padding:0px 5px;
+      }
+        }
+    </style>
   </head>
-  <body>
-    <div style="width:100%;">
-      <table style="border: 1px solid grey;
-      border: solid 1px #ddeeee;
+  <body style="background-color:#ECEEF1;width:100%;">
+    <div class="container" style="max-width:800px;background-color:#FFF;margin:auto;border:1px solid #d4d6d8;padding:20px 20px;">
+        <div class="header" style="text-align:center;">
+            <img src="http://lapicaflor.cl/images/logo.png" width="200px" />
+          </div>
+      <table style="
       border-collapse: collapse;
       border-spacing: 0;
-      font: normal 16px Arial, sans-serif;">
+      font: normal 13px Arial, sans-serif;
+      color:#333;">
         <tr>
-          <td style="border: solid 1px #ddeeee;
-          color: #333;
-          padding: 15px 30px;
-          text-shadow: 1px 1px 1px #fff;">Fecha</td>
-          <td style="border: solid 1px #ddeeee;
-          color: #333;
-          padding: 15px 30px;
-          text-shadow: 1px 1px 1px #fff;">10/09/2019</td>
+          <td>Fecha</td>
+          <td>10/09/2019</td>
         </td>
         <tr>
-          <td style="border: solid 1px #ddeeee;
-          color: #333;
-          padding: 15px 30px;
-          text-shadow: 1px 1px 1px #fff;">Nombre</td>
-          <td style="border: solid 1px #ddeeee;
-          color: #333;
-          padding: 15px 30px;
-          text-shadow: 1px 1px 1px #fff;">Nicolás Garcia</td>
+          <td>Nombre</td>
+          <td>Nicolás Garcia</td>
         </tr>
       </table>
 
@@ -48,9 +59,8 @@
               style="background-color: #ddefef;
                   border: solid 1px #ddeeee;
                   color: #336b6b;
-                  padding: 15px 30px;
                   text-align: left;
-                  text-shadow: 1px 1px 1px #fff;"
+                  "
             >
               Producto
             </th>
@@ -58,9 +68,8 @@
               style="background-color: #ddefef;
                   border: solid 1px #ddeeee;
                   color: #336b6b;
-                  padding: 15px 30px;
                   text-align: left;
-                  text-shadow: 1px 1px 1px #fff;"
+                  "
             >
               Cantidad
             </th>
@@ -68,9 +77,8 @@
               style="background-color: #ddefef;
                   border: solid 1px #ddeeee;
                   color: #336b6b;
-                  padding: 15px 30px;
                   text-align: left;
-                  text-shadow: 1px 1px 1px #fff;"
+                  "
             >
               Unidad
             </th>
@@ -78,9 +86,8 @@
               style="background-color: #ddefef;
                   border: solid 1px #ddeeee;
                   color: #336b6b;
-                  padding: 15px 30px;
                   text-align: left;
-                  text-shadow: 1px 1px 1px #fff;"
+                  "
             >
               Total
             </th>
@@ -91,16 +98,14 @@
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;"
+                      "
             >
               Paquete de Cramberries
             </td>
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;
+                      
                     text-align: right;"
             >
               1
@@ -108,16 +113,14 @@
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;"
+                      "
             >
               Unidad
             </td>
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;
+                      
                     text-align: right;"
             >
               1200
@@ -127,16 +130,14 @@
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;"
+                      "
             >
               Manzana Roja
             </td>
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;
+                      
                     text-align: right;"
             >
               4
@@ -144,16 +145,14 @@
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;"
+                      "
             >
               Kgs
             </td>
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;
+                      
                     text-align: right;"
             >
               1000
@@ -163,16 +162,14 @@
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;"
+                      "
             >
               Naranja
             </td>
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;
+                      
                     text-align: right;"
             >
               1
@@ -180,16 +177,14 @@
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;"
+                      "
             >
               undefined
             </td>
             <td
               style="border: solid 1px #ddeeee;
                     color: #333;
-                    padding: 15px 30px;
-                    text-shadow: 1px 1px 1px #fff;
+                      
                     text-align: right;"
             >
               1500
@@ -197,6 +192,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
+  </div>
   </body>
 </html>

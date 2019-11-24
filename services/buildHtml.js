@@ -4,52 +4,74 @@ exports.buildHtml = (date, obj) => {
     th: `background-color: #ddefef;
     border: solid 1px #ddeeee;
     color: #336b6b;
-    padding: 15px 30px;
-    text-align: left;
-    text-shadow: 1px 1px 1px #fff;`,
-    td: `border: solid 1px #ddeeee;
-      color: #333;
-      padding: 15px 30px;
-      text-shadow: 1px 1px 1px #fff;`,
+    text-align: left;`,
+    td: `color: #333;`,
     tdra: `border: solid 1px #ddeeee;
       color: #333;
       padding: 15px 30px;
-      text-shadow: 1px 1px 1px #fff;     
+     
       text-align: right;`,
-    tdunstyle: `color: #333;
-    padding: 15px 30px;
-    text-shadow: 1px 1px 1px #fff;`
+    tdunstyle: `color: #333;`
   };
 
+  const head = `<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Recibo La Picaflor</title>
+      <style>
+        .container{
+          width:80%;
+        }
+        td,th,tr {
+          padding: 15px 30px;
+        }
+        @media (max-width:650px){
+          .container{
+            width:98%;
+          }
+          td,th,tr {
+            padding: 4px 8px;
+          }
+        }
+      </style>
+    </head>`;
+
   const tabletop = `
-  <div style="width:100%;">
+  <body style="background-color:#ECEEF1;width:100%;">
+  <div class="container" style="max-width:800px;background-color:#FFF;margin:auto;border:1px solid #d4d6d8;padding:20px 20px;">
+  <div class="header" style="text-align:center;">
+            <img src="http://lapicaflor.cl/images/logo.png" width="200px"/>
+          </div>
   <table style="
       border-collapse: collapse;
       border-spacing: 0;
-      font: normal 16px Arial, sans-serif;">
+      font: normal 16px Arial, sans-serif; color:#333;">
         <tr>
-          <td style="${style.tdunstyle}"><b>Fecha de la orden</b></td>
-          <td style="${style.tdunstyle}">${date}</td>
+          <td><b>Fecha de la orden</b></td>
+          <td>${date}</td>
         </tr>
         <tr>
-          <td style="${style.tdunstyle}"><b>Fecha de despacho</b></td>
-          <td style="${style.tdunstyle}">${obj.date}</td>
+          <td><b>Fecha de despacho</b></td>
+          <td>${obj.date}</td>
         </tr>
         <tr>
-          <td style="${style.tdunstyle}"><b>Nombre</b></td>
-          <td style="${style.tdunstyle}">${obj.formData.fullname}</td>
+          <td><b>Nombre</b></td>
+          <td>${obj.formData.fullname}</td>
         </tr>
         <tr>
-        <td style="${style.tdunstyle}"><b>Comuna</b></td>
-        <td style="${style.tdunstyle}">${obj.formData.comuna}</td>
+        <td><b>Comuna</b></td>
+        <td>${obj.formData.comuna}</td>
       </tr>
       <tr>
-        <td style="${style.tdunstyle}"><b>Dirección</b></td>
-        <td style="${style.tdunstyle}">${obj.formData.address}</td>
+        <td><b>Dirección</b></td>
+        <td>${obj.formData.address}</td>
       </tr>
       <tr>
-        <td style="${style.tdunstyle}"><b>Teléfono</b></td>
-        <td style="${style.tdunstyle}">${obj.formData.phone}</td>
+        <td><b>Teléfono</b></td>
+        <td>${obj.formData.phone}</td>
       </tr>
       </table>
   <table style="border: 1px solid grey;
@@ -77,8 +99,8 @@ exports.buildHtml = (date, obj) => {
   );
 
   const tablebottom = `</tbody>
-  </table></div>`;
+  </table></div></body></html>`;
 
-  const content = tabletop + products + tablebottom;
+  const content = head + tabletop + products + tablebottom;
   return content;
 };

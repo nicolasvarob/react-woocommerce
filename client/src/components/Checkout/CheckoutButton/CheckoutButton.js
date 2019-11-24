@@ -37,10 +37,14 @@ class CheckoutButton extends Component {
     } else {
       return console.log("error ! Carro vacío");
     }
-
+    var total = 0;
+    if (cart) {
+      cart.forEach(i => (total += i.price * i.qty));
+    }
     var payload = {
       date: this.props.shippingDate,
       cart: items,
+      total: total,
       formData: formData
     };
 
@@ -60,9 +64,10 @@ class CheckoutButton extends Component {
       body: JSON.stringify(payload)
     });
     const status = await res.status;
-    if (status >= 200 && status < 300)
+    if (status >= 200 && status < 300) {
+      localStorage.prevOrder = JSON.stringify(payload);
       this.setState({ redirect: "/checkout/thank-you" });
-    else {
+    } else {
       this.setState({
         errorResponse: "Error de conexión. Por favor intente más tarde."
       });
@@ -82,7 +87,11 @@ class CheckoutButton extends Component {
         <Redirect
           to={{
             pathname: this.state.redirect,
-            state: { from: "checkout" }
+            state: {
+              from: "checkout",
+              shippingDate: this.props.shippingDate,
+              formData: this.props.formData
+            }
           }}
         />
       );

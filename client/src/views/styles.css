@@ -1,14 +1,19 @@
-div #app{
-    background-color:grey;
-    background-image:url('/background.jpg');
-    min-height: 100vh;
+div #app {
+  background-color: grey;
+  background-image: url("/background.jpg");
+  min-height: 100vh;
 }
 
 #content {
-    background-color:#fff;
-    min-height:100vh;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+#othercontent {
+  background-color: #fff;
+  min-height: 100vh;
 }
 
 #content.container {
-    padding:0;
+  padding: 0;
 }

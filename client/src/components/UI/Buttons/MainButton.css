@@ -24,9 +24,9 @@
     color: #ab3326;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 618px) {
     .btn.second,.btn.main {
         width:100%;
-        margin-bottom:10px;
+        margin-bottom:1.75em;
     }
 }
