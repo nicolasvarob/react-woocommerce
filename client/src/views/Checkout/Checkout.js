@@ -38,11 +38,12 @@ class Checkout extends Component {
                 <div className="box-wrapper">
                   <OrderList id="checkout-orderlist" location={location} />
                 </div>
+              </div>
+              <div className="col-sm">
+                <h2>Datos de entrega</h2>
                 <CheckoutForm
                   formDataCallback={this._returnFormDataFromChild}
                 />
-              </div>
-              <div className="col-sm">
                 <h2>Selecciona el día de entrega</h2>
                 <ShippingDateSelect
                   dateCallback={this._returnPickupDateFromChild}

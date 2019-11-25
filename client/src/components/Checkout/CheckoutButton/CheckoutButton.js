@@ -37,17 +37,17 @@ class CheckoutButton extends Component {
     } else {
       return console.log("error ! Carro vacío");
     }
-    var total = 0;
+    let total = 0;
     if (cart) {
-      cart.forEach(i => (total += i.price * i.qty));
+      await cart.forEach(i => (total += i.price * i.qty));
     }
-    var payload = {
+    console.log(total)
+    const payload = {
       date: this.props.shippingDate,
       cart: items,
       total: total,
       formData: formData
     };
-
     //Validaciones
     if (!payload.date) {
       return this.setState({ errorResponse: "Favor elegir fecha de despacho" });

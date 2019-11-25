@@ -1,16 +1,10 @@
 exports.buildHtml = (date, obj) => {
   console.log(obj);
   const style = {
-    th: `background-color: #ddefef;
-    border: solid 1px #ddeeee;
-    color: #336b6b;
-    text-align: left;`,
-    td: `color: #333;`,
     tdra: `border: solid 1px #ddeeee;
       color: #333;
       padding: 15px 30px;
-     
-      text-align: right;`,
+      text-align: left;`,
     tdunstyle: `color: #333;`
   };
 
@@ -22,69 +16,95 @@ exports.buildHtml = (date, obj) => {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>Recibo La Picaflor</title>
       <style>
+      h2{
+        font: bold 24px Arial, sans-serif;
+      }
+      p{
+        font: 16px Arial, sans-serif;
+      }
+      .total {
+        text-align:left;
+        font: 20px Arial, sans-serif;
+      }
+    .left-align{
+      text-align:left;
+    }
+    .right-align{
+      text-align:right;
+    }
+      .container{
+        width:80%;
+        max-width:100%;
+        background-color:#FFF;
+        margin:auto;
+        padding:20px 20px;
+        position:relative;
+        width:800px;
+      }
+      td,th,tr {
+        padding: 4px 8px;
+        color: #333;
+      }
+      table {
+        margin:auto;
+        font: normal 16px Arial, sans-serif;
+        width:80%;
+      }
+      .info-table {
+        border:1px solid #e6e6e6;
+        background-color:#f3f3f3;
+        position:relative;
+      }
+
+      .info-table tbody tr {
+        padding:0 25px;
+      }
+
+      @media (max-width:650px){
         .container{
-          width:80%;
+          width:100%;
         }
-        td,th,tr {
-          padding: 15px 30px;
+        table{
+          width:90%;
         }
-        @media (max-width:650px){
-          .container{
-            width:98%;
-          }
-          td,th,tr {
-            padding: 4px 8px;
-          }
-        }
+      }
       </style>
     </head>`;
 
   const tabletop = `
   <body style="background-color:#ECEEF1;width:100%;">
-  <div class="container" style="max-width:800px;background-color:#FFF;margin:auto;border:1px solid #d4d6d8;padding:20px 20px;">
+  <div class="container">
   <div class="header" style="text-align:center;">
             <img src="http://lapicaflor.cl/images/logo.png" width="200px"/>
           </div>
-  <table style="
-      border-collapse: collapse;
-      border-spacing: 0;
-      font: normal 16px Arial, sans-serif; color:#333;">
+  <h2> Gracias por preferirnos</h2>
+  <p> ¡Gracias por comprar en La Picaflor! Para completar su compra favor transferir el total de la compra a:</p>
+  <p> <b>Cuenta Corriente BCI</b><br>
+      <b>N° CUENTA:</b> 27377849<br>
+      <b>NOMBRE:</b> Comercializadora La Picaflor SpA<br>
+      <b>RUT:</b> 76.839.053 - 3    <br> 
+      <b>MENSAJE:</b> Pedido (Tu Nombre)<br>
+      <b>CORREO:</b> pedidoslapicaflor@gmail.com<br>
+  </p>
+  <h2>Detalles de la compra</h2>
+  <table class="info-table left-align">
         <tr>
-          <td><b>Fecha de la orden</b></td>
-          <td>${date}</td>
+          <td><b>Fecha de despacho</b><br> ${obj.date}</td>
+          <td><b>Nombre</b><br> ${obj.formData.fullname}</td>
         </tr>
         <tr>
-          <td><b>Fecha de despacho</b></td>
-          <td>${obj.date}</td>
+          <td><b>Comuna</b><br> ${obj.formData.comuna}</td>
+          <td><b>Dirección</b><br> ${obj.formData.address}</td>
         </tr>
-        <tr>
-          <td><b>Nombre</b></td>
-          <td>${obj.formData.fullname}</td>
+          <td><b>Teléfono</b><br> ${obj.formData.phone}</td>
         </tr>
-        <tr>
-        <td><b>Comuna</b></td>
-        <td>${obj.formData.comuna}</td>
-      </tr>
-      <tr>
-        <td><b>Dirección</b></td>
-        <td>${obj.formData.address}</td>
-      </tr>
-      <tr>
-        <td><b>Teléfono</b></td>
-        <td>${obj.formData.phone}</td>
-      </tr>
       </table>
-  <table style="border: 1px solid grey;
-  border: solid 1px #ddeeee;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font: normal 13px Arial, sans-serif;">
-  <thead>
+  <table>
+  <thead class="left-align">
     <tr>
-      <th style="${style.th}">Producto</th>
-      <th style="${style.th}">Cantidad</th>
-      <th style="${style.th}">Unidad</th>
-      <th style="${style.th}">Total</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
     </tr>
   </thead>
   <tbody>`;
@@ -92,13 +112,23 @@ exports.buildHtml = (date, obj) => {
   let products = "";
   obj.cart.map(
     i =>
-      (products += `<tr><td style="${style.td}">${i.name}</td>
-          <td style="${style.tdra}">${i.qty}</td>
-          <td style="${style.td}">${i.measure}</td>
-          <td style="${style.tdra}">${i.price}</td></tr>`)
+      (products += `<tr><td>${i.name}</td>
+          <td style="left-align">${i.qty} ${i.measure}</td>
+          <td style="right-align">${i.price}</td></tr>`)
   );
 
-  const tablebottom = `</tbody>
+  const tablebottom = `
+  <td></td>
+  <td></td>
+  <td>
+  <p class="total right-align">
+  <b>Total</b>  
+  $ ${obj.total}
+  </p>
+  </td>
+
+ 
+  </tbody>
   </table></div></body></html>`;
 
   const content = head + tabletop + products + tablebottom;

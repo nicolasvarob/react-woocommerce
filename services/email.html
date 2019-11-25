@@ -1,197 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Recibo La Picaflor</title>
-    <style>
-      .container{
-        width:80%;
-      }
-      
-      th,td,tr {
-          padding: 15px 30px;
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scal=
+e=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Recibo La Picaflor</title>
+      <style>
+        h2{
+          font: bold 24px Arial, sans-serif;
         }
+        p{
+          font: 16px Arial, sans-serif;
+        }
+      .left-align{
+        text-align:left;
+      }
+        .container{
+          width:80%;
+          max-width:100%;
+          background-color:#FFF;
+          margin:auto;
+          padding:20px 20px;
+          position:relative;
+          width:800px;
+        }
+        td,th,tr {
+          padding: 4px 8px;
+          color: #333;
+        }
+        table {
+          margin:auto;
+          font: normal 16px Arial, sans-serif;
+          width:80%;
+        }
+        .info-table {
+          border:1px solid #e6e6e6;
+          background-color:#f3f3f3;
+          position:relative;
+        }
+
+        .info-table tbody tr {
+          padding:0 25px;
+        }
+
         @media (max-width:650px){
           .container{
-            width:98%;
+            width:100%;
           }
-          td,th,tr {
-            padding: 4px 8px;
+          table{
+            width:90%;
           }
-          tr.table-head>td {
-        padding:0px 5px;
-      }
         }
-    </style>
-  </head>
+      </style>
+    </head>
   <body style="background-color:#ECEEF1;width:100%;">
-    <div class="container" style="max-width:800px;background-color:#FFF;margin:auto;border:1px solid #d4d6d8;padding:20px 20px;">
-        <div class="header" style="text-align:center;">
-            <img src="http://lapicaflor.cl/images/logo.png" width="200px" />
+  <div class="container">
+  <div class="header" style="text-align:center;margin-bottom:20px;">
+            <img src="http://lapicaflor.cl/images/logo.png" width="200px"/>
           </div>
-      <table style="
-      border-collapse: collapse;
-      border-spacing: 0;
-      font: normal 13px Arial, sans-serif;
-      color:#333;">
+          <h2> Gracias por preferirnos</h2>
+        <p> ¡Gracias por comprar en La Picaflor! Para completar su compra favor transferir el total de la compra a:</p>
+        <p> <b>Cuenta Corriente BCI</b><br>
+            <b>N° CUENTA:</b> 27377849<br>
+            <b>NOMBRE:</b> Comercializadora La Picaflor SpA<br>
+            <b>RUT:</b> 76.839.053 - 3    <br> 
+            <b>MENSAJE:</b> Pedido (Tu Nombre)<br>
+            <b>CORREO:</b> pedidoslapicaflor@gmail.com<br>
+            </p>
+  <h2>Detalles de la compra</h2>
+  <table class="info-table">
         <tr>
-          <td>Fecha</td>
-          <td>10/09/2019</td>
-        </td>
+          <td><b>Fecha de despacho</b><br> 26/10/2019</td>
+          <td><b>Nombre</b><br> NicolA1s VA1squez</td>
+        </tr>
         <tr>
-          <td>Nombre</td>
-          <td>Nicolás Garcia</td>
+          <td><b>Comuna</b><br> lorena </td>
+          <td><b>DirecciB3n</b><br> lorena 14</td>
+        </tr>
+          <td><b>TelA9fono</b><br> 645645644</td>
         </tr>
       </table>
+  <table>
+  <thead class="left-align">
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody><tr><td>Naranja</td>
+          <td style="left-align">1 undefined</td>
+          <td style="">1500</td></tr><tr><td>Manzana =
+Roja</td>
+          <td style="left-align">2 Kgs</td>
+          <td style="">1000</td></tr>
+          <tr><td>TOTAL 20000</td></tr>
 
-      <table
-        style="border: 1px solid grey;
-                border: solid 1px #ddeeee;
-                border-collapse: collapse;
-                border-spacing: 0;
-                font: normal 13px Arial, sans-serif;"
-      >
-        <thead>
-          <tr>
-            <th
-              style="background-color: #ddefef;
-                  border: solid 1px #ddeeee;
-                  color: #336b6b;
-                  text-align: left;
-                  "
-            >
-              Producto
-            </th>
-            <th
-              style="background-color: #ddefef;
-                  border: solid 1px #ddeeee;
-                  color: #336b6b;
-                  text-align: left;
-                  "
-            >
-              Cantidad
-            </th>
-            <th
-              style="background-color: #ddefef;
-                  border: solid 1px #ddeeee;
-                  color: #336b6b;
-                  text-align: left;
-                  "
-            >
-              Unidad
-            </th>
-            <th
-              style="background-color: #ddefef;
-                  border: solid 1px #ddeeee;
-                  color: #336b6b;
-                  text-align: left;
-                  "
-            >
-              Total
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      "
-            >
-              Paquete de Cramberries
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      
-                    text-align: right;"
-            >
-              1
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      "
-            >
-              Unidad
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      
-                    text-align: right;"
-            >
-              1200
-            </td>
-          </tr>
-          <tr>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      "
-            >
-              Manzana Roja
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      
-                    text-align: right;"
-            >
-              4
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      "
-            >
-              Kgs
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      
-                    text-align: right;"
-            >
-              1000
-            </td>
-          </tr>
-          <tr>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      "
-            >
-              Naranja
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      
-                    text-align: right;"
-            >
-              1
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      "
-            >
-              undefined
-            </td>
-            <td
-              style="border: solid 1px #ddeeee;
-                    color: #333;
-                      
-                    text-align: right;"
-            >
-              1500
-            </td>
-          </tr>
+        
         </tbody>
-      </table>
-  </div>
-  </body>
-</html>
+  </table></div></body></html>
