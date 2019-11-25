@@ -20,6 +20,7 @@ class CheckoutButton extends Component {
       if (error) return false;
       else return true;
     };
+    
     const cart = this.props.cartItems;
     const formData = this.props.formData;
     const items = cart.map(i => {
@@ -53,7 +54,6 @@ class CheckoutButton extends Component {
       return this.setState({ errorResponse: "Favor elegir fecha de despacho" });
     }
     const validationError = await validateFormFields(payload.formData);
-    console.log(validationError);
     if (!validationError) {
       return this.setState({ errorResponse: "Favor llenar todos los campos" });
     }
