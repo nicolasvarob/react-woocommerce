@@ -30,6 +30,19 @@ class ProductGrid extends Component {
   };
 
   render() {
+    const apiUrl = document.location.host + "/api/store";
+    fetch("http://localhost:3000/api/store")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json) {
+        if (json) {
+          this.setState({ products: json });
+        }
+      })
+      .catch(function(err) {
+        console.log("Hubo un problema con la petición Fetch:" + err.message);
+      });
     let list = this.state.products;
     let pageCategory = this.props.category;
     if (pageCategory) {

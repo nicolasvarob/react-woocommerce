@@ -51,13 +51,15 @@ async function callWooCommerce() {
 
   //Save WooCommerce response as product json
   const resToJSON = JSON.stringify(products);
-  fs.writeFile("./client/src/assets/products.json", resToJSON, "utf8", function(
+  fs.writeFile("./products.json", resToJSON, "utf8", function(
     err
   ) {
     if (err) {
       console.log("An error occured while writing JSON Object to File.");
       return console.log(err);
     }
+    
+    //Actualizar JSON
     console.log("JSON file has been saved.");
   });
 }
@@ -80,6 +82,10 @@ cron.schedule(
 app.post("/api/sender", (req, res) => {
   emailer.SendOrderTo(req.body);
   res.send('ok')
+});
+
+app.get("/api/store/", (req, res) => {
+  res.sendFile(path.join(__dirname + "/products.json"));
 });
 
 app.get("*", (req, res) => {
