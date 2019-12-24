@@ -32,7 +32,7 @@ class ProductGrid extends Component {
 
   componentDidMount() {
     console.log('did mount')
-    fetch("http://localhost:5000/api/store")
+    fetch("http://167.99.6.92:5000/api/store")
       .then(response => {
         return response.json();
       })
