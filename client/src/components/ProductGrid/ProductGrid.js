@@ -26,24 +26,33 @@ class ProductGrid extends Component {
   //Grilla de productos,
 
   state = {
-    products: productJSON
+    products: [],
+    loaded: false
   };
 
-  render() {
-    const apiUrl = document.location.host + "/api/store";
-    fetch("http://localhost:3000/api/store")
-      .then(function(response) {
+  componentDidMount() {
+    console.log('did mount')
+    fetch("http://localhost:5000/api/store")
+      .then(response => {
         return response.json();
       })
-      .then(function(json) {
+      .then(json => {
+        console.log("will load");
         if (json) {
-          this.setState({ products: json });
+          console.log("load");
+          console.log(json);
+          return this.setState({ products: json });
         }
       })
       .catch(function(err) {
         console.log("Hubo un problema con la petición Fetch:" + err.message);
       });
+  }
+
+  render() {
+    console.log('render')
     let list = this.state.products;
+    console.log(list)
     let pageCategory = this.props.category;
     if (pageCategory) {
       pageCategory = pageCategory.replace("-", " ");

@@ -4,36 +4,42 @@ const app = express();
 const credentials = require("./secret/keys.json");
 const fs = require("fs");
 const cron = require("node-cron");
-const emailer = require('./services/emailer');
+const emailer = require("./services/emailer");
 
-const WooCommerceAPI = require("woocommerce-api");
+const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 
-var WooCommerce = new WooCommerceAPI({
-  url: "http://167.99.6.92/backstore/",
+var WooCommerce = new WooCommerceRestApi({
+  url: "http://167.99.6.92/",
   consumerKey: credentials.CONSUMER_KEY,
   consumerSecret: credentials.CONSUMER_SECRET,
-  version: "v3"
+  version: "wc/v3"
 });
 
 const port = 5000;
 
 app.use(express.static(path.join(__dirname, "client/build")));
-app.use(express.json())
+app.use(express.json());
 
+//TODO ACTUALIZAR LIBRERIA
 async function callWooCommerce() {
-  const result = await WooCommerce.getAsync("products");
-  const response = await JSON.parse(result.toJSON().body);
-  const products = await response.products.map(i => {
+  const result = await WooCommerce.get("products");
+  const response = await result.data;
+  const products = await response.map(i => {
     const id = i.id;
-    const title = i.title;
+    const title = i.name;
     const price = i.price;
     const regular_price = i.regular_price;
     const sale_price = i.sale_price;
     const featured = i.featured;
-    const featured_src = i.featured_src;
-    const tags = i.tags;
     const on_sale = i.on_sale;
-    const categories = i.categories;
+
+    let featured_src = "none";
+    let tags = "none";
+    let categories = "none";
+    if (i.images[0]) featured_src = i.images[0].src;
+    if (i.tags[0]) tags = i.tags[0].name;
+    if (i.categories[0]) categories = i.categories[0].name;
+
     const obj = {
       id: id,
       title: title,
@@ -46,32 +52,28 @@ async function callWooCommerce() {
       on_sale: on_sale,
       categories: categories
     };
+    console.log(obj);
     return obj;
   });
 
   //Save WooCommerce response as product json
   const resToJSON = JSON.stringify(products);
-  fs.writeFile("./products.json", resToJSON, "utf8", function(
-    err
-  ) {
+  fs.writeFile("./products.json", resToJSON, "utf8", function(err) {
     if (err) {
       console.log("An error occured while writing JSON Object to File.");
       return console.log(err);
     }
-    
+
     //Actualizar JSON
     console.log("JSON file has been saved.");
   });
 }
-callWooCommerce().catch(e => {
-  console.log("Error en llamada a WooCommerce API");
-  console.log(e);
-});
+callWooCommerce();
 
 //Cron Job
 cron.schedule(
-  "* 5 * * * *",
-   () => callWooCommerce().catch(e => console.log(e)),
+  "0 5 * * *",
+  () => callWooCommerce().catch(e => console.log(e)),
   null,
   true,
   "America/Santiago"
@@ -81,10 +83,10 @@ cron.schedule(
 
 app.post("/api/sender", (req, res) => {
   emailer.SendOrderTo(req.body);
-  res.send('ok')
+  res.send("ok");
 });
 
-app.get("/api/store/", (req, res) => {
+app.get("/api/store", (req, res) => {
   res.sendFile(path.join(__dirname + "/products.json"));
 });
 
