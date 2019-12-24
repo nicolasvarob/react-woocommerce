@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/static/media/fontawesome-webfont.fee66e71.woff"
   },
   {
-    "revision": "4c6fd197cb3daf0cdd03",
-    "url": "/static/css/main.7576fe80.chunk.css"
+    "revision": "11a80810ae92bb32f1c3",
+    "url": "/static/css/main.b942c3bd.chunk.css"
   },
   {
     "revision": "faa734a58646941435dd78c605be2460",
     "url": "/static/media/grocery-bag.faa734a5.jpg"
   },
   {
-    "revision": "37d74cbcc086b87faaf9",
-    "url": "/static/js/1.37d74cbc.chunk.js"
+    "revision": "7e042c84113264723bbd",
+    "url": "/static/js/1.7e042c84.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/fontawesome-webfont.af7ae505.woff2"
   },
   {
-    "revision": "4c6fd197cb3daf0cdd03",
-    "url": "/static/js/main.4c6fd197.chunk.js"
+    "revision": "11a80810ae92bb32f1c3",
+    "url": "/static/js/main.11a80810.chunk.js"
   },
   {
     "revision": "b06871f281fee6b241d60582ae9369b9",
@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "/static/media/short-hero.265f0f08.jpg"
   },
   {
-    "revision": "37d74cbcc086b87faaf9",
-    "url": "/static/css/1.5b2e3f7f.chunk.css"
+    "revision": "7e042c84113264723bbd",
+    "url": "/static/css/1.328c46bf.chunk.css"
   },
   {
-    "revision": "05e8919c99e1776fd609f9cc232cafd1",
+    "revision": "c27ac4625915a1203c59fed791be62c1",
     "url": "/index.html"
   }
 ];
